@@ -21,5 +21,8 @@ namespace EJ03
                 this.comboBox1.SelectedItem = 1;
             }
         }
+
+        //iniciar combobox string[] numeros=new string[]{"uno","dos"...}
+        //this.comboBox1.Item.AddRange(numeros)
     }
 }
