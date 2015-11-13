@@ -24,11 +24,12 @@ namespace EJ05
                 VentanaCirculo ventana = new VentanaCirculo();
                 this.Hide();
                 ventana.Show();
-                
             }
             else if (radioButton2.Checked)
             {
-
+                VentanaTriangulo ventana = new VentanaTriangulo();
+                this.Hide();
+                ventana.Show();
             }
             else
             {

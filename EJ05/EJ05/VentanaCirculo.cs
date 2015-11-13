@@ -47,8 +47,8 @@ namespace EJ05
             }
             else
             {
-                double per = this.cFachada.CalcularAreaCirculo(double.Parse(this.textBox1.Text), double.Parse(this.textBox2.Text), double.Parse(this.textBox3.Text));
-                MessageBox.Show("El área del círculo es: " + per.ToString(), "Área");
+                double area = this.cFachada.CalcularAreaCirculo(double.Parse(this.textBox1.Text), double.Parse(this.textBox2.Text), double.Parse(this.textBox3.Text));
+                MessageBox.Show("El área del círculo es: " + area.ToString(), "Área");
             }
         }
     }

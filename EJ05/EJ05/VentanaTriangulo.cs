@@ -27,28 +27,31 @@ namespace EJ05
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if ((this.textBox1.Text == "") || (this.textBox2.Text == "") || (this.textBox3.Text == ""))
+            if ((this.textBox1.Text == "") || (this.textBox2.Text == "") || (this.textBox3.Text == "") || (this.textBox4.Text == "") || (this.textBox5.Text == "") || (this.textBox6.Text == ""))
             {
                 MessageBox.Show("Faltan datos");
             }
             else
             {
-                double per = this.cFachada.CalcularPerimetroTriangulo(double.Parse(this.textBox1.Text), double.Parse(this.textBox2.Text), double.Parse(this.textBox3.Text));
-                MessageBox.Show("El perímetro del círculo es: " + per.ToString(), "Perímetro");
+                double[] coorX = new double[] { double.Parse(this.textBox1.Text), double.Parse(this.textBox3.Text), double.Parse(this.textBox5.Text) };
+                double[] coorY = new double[] { double.Parse(this.textBox2.Text), double.Parse(this.textBox4.Text), double.Parse(this.textBox6.Text) };
+                double per = this.cFachada.CalcularPerimetroTriangulo(coorX,coorY);
+                MessageBox.Show("El perímetro del triángulo es: " + per.ToString(), "Perímetro");
             }
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if ((this.textBox1.Text == "") || (this.textBox2.Text == "") || (this.textBox3.Text == ""))
+            if ((this.textBox1.Text == "") || (this.textBox2.Text == "") || (this.textBox3.Text == "") || (this.textBox4.Text == "") || (this.textBox5.Text == "") || (this.textBox6.Text == ""))
             {
                 MessageBox.Show("Faltan datos");
             }
             else
             {
-                double per = this.cFachada.CalcularAreaCirculo(double.Parse(this.textBox1.Text), double.Parse(this.textBox2.Text), double.Parse(this.textBox3.Text));
-                MessageBox.Show("El área del círculo es: " + per.ToString(), "Área");
+                double[] coorX = new double[] { double.Parse(this.textBox1.Text), double.Parse(this.textBox3.Text), double.Parse(this.textBox5.Text) };
+                double[] coorY = new double[] { double.Parse(this.textBox2.Text), double.Parse(this.textBox4.Text), double.Parse(this.textBox6.Text) };
+                double area = this.cFachada.CalcularAreaTriangulo(coorX, coorY);
+                MessageBox.Show("El área del triángulo es: " + area.ToString(), "Área");
             }
         }
     }
