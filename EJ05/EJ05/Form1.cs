@@ -22,12 +22,14 @@ namespace EJ05
             if (radioButton1.Checked)
             {
                 VentanaCirculo ventana = new VentanaCirculo();
+                ventana.Closed += (s, args) => this.Show();
                 this.Hide();
                 ventana.Show();
             }
             else if (radioButton2.Checked)
             {
                 VentanaTriangulo ventana = new VentanaTriangulo();
+                ventana.Closed += (s, args) => this.Show();
                 this.Hide();
                 ventana.Show();
             }
