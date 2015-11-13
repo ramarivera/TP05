@@ -9,7 +9,7 @@ namespace EJ06
 	/// <summary>
 	/// Clase Fachada del ejercicio04, abstrae implementaciones de las clases Cuentas, Cuenta y Moneda
 	/// </summary>
-	class Facade
+	public class Facade
 	{
 		private Cuentas iCuentas;
 

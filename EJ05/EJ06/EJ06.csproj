@@ -67,6 +67,12 @@
     <Compile Include="VentanaAcreditar.Designer.cs">
       <DependentUpon>VentanaAcreditar.cs</DependentUpon>
     </Compile>
+    <Compile Include="VentanaDebitar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaDebitar.Designer.cs">
+      <DependentUpon>VentanaDebitar.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -81,6 +87,9 @@
     </Compile>
     <EmbeddedResource Include="VentanaAcreditar.resx">
       <DependentUpon>VentanaAcreditar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanaDebitar.resx">
+      <DependentUpon>VentanaDebitar.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

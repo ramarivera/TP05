@@ -12,10 +12,28 @@ namespace EJ06
 {
     public partial class Form1 : Form
     {
-        Facade cFachada = new Facade();
+        public string monedaActual
+        {
+            get{
+                string mon ="";
+                if (this.pesosToolStripMenuItem.Checked)
+                {
+                    mon = "ARS";
+                }
+                else if (this.dólaresToolStripMenuItem.Checked)
+                {
+                    mon = "USD";
+                }
+                return mon;
+            }
+        }
+        public Facade cFachada;
+   
+
         public Form1()
         {
             InitializeComponent();
+            cFachada = new Facade();
         }
 
         private void pesosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -65,24 +83,10 @@ namespace EJ06
 
         private void acreditarSaldoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Console.Write("Ingrese el saldo a Acreditar: ");
-                aux = double.Parse(Console.ReadLine());
-                Console.Write(cFachada.AcreditarSaldo(pCodigoCuenta, aux) ? "La operacion se realizo correctamente" : "La operacion no pudo realizarse");
-                Console.ReadKey();
-                Console.WriteLine();
-            }
-            catch (MontoNegativoException e)
-            {
-                Console.WriteLine(e.Message);
-                Console.ReadKey();
-            }
-            catch (DesbordamientoException e)
-            {
-                Console.WriteLine(e.Message);
-                Console.ReadKey();
-            }
+            VentanaAcreditar ventana = new VentanaAcreditar(this.monedaActual);
+            ventana.Closed += (s, args) => this.Show();
+            this.Hide();
+            ventana.Show();
         }
     }
 }

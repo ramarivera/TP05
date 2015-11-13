@@ -1,6 +1,6 @@
 ﻿namespace EJ06
 {
-    partial class VentanaAcreditar
+    partial class VentanaDebitar
     {
         /// <summary>
         /// Required designer variable.
@@ -38,9 +38,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(23, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(182, 13);
+            this.label1.Size = new System.Drawing.Size(173, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Ingrese el monto que desea acreditar";
+            this.label1.Text = "Ingrese el monto que desea debitar";
             // 
             // textBox1
             // 
@@ -59,7 +59,7 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // VentanaAcreditar
+            // VentanaDebitar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -67,8 +67,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Name = "VentanaAcreditar";
-            this.Text = "Acreditar Saldo";
+            this.Name = "VentanaDebitar";
+            this.Text = "Debitar Saldo";
             this.ResumeLayout(false);
             this.PerformLayout();
 
