@@ -21,8 +21,8 @@ namespace EJ05
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
-            Form1 menu = new Form1();
-            menu.Show();
+            /*Form1 menu = new Form1();
+            menu.Show();*/ //Ver el boton siguiente de la ventana anterior
         }
 
         private void button1_Click(object sender, EventArgs e)
