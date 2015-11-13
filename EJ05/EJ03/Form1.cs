@@ -12,17 +12,17 @@ namespace EJ03
 {
     public partial class Form1 : Form
     {
+        string[] numerosIng = new string[] { "one", "two", "tree", "four", "five", "six", "seven", "eigth", "nine", "ten" };
         public Form1()
         {
             InitializeComponent();
-            for (int i = 1; i <= 10; i++)
-            {
-                this.comboBox1.Items.Add(i);
-                this.comboBox1.SelectedItem = 1;
-            }
+            string[] numerosEsp = new string[] { "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez" };
+            this.comboBox1.Items.AddRange(numerosEsp);
         }
 
-        //iniciar combobox string[] numeros=new string[]{"uno","dos"...}
-        //this.comboBox1.Item.AddRange(numeros)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.label3.Text = this.numerosIng[this.comboBox1.SelectedIndex];
+        }
     }
 }
