@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace EJ05
 {
 	/// <summary>
-	/// Representa un punto en el espacio de R2
+	/// Representa un punto en el espacio de R2.
 	/// </summary>
     class Punto
     {
