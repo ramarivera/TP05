@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DesencriptarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DesencriptarForm.Designer.cs">
+      <DependentUpon>DesencriptarForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enciptadores\Encriptador.cs" />
     <Compile Include="Enciptadores\EncriptadorAES.cs" />
     <Compile Include="Enciptadores\EncriptadorCesar.cs" />
@@ -58,15 +64,27 @@
     <Compile Include="Enciptadores\Maquina Enigma\Reflector.cs" />
     <Compile Include="Enciptadores\Maquina Enigma\Rotor.cs" />
     <Compile Include="Enciptadores\Maquina Enigma\Rotores.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="EncriptarForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="EncriptarForm.Designer.cs">
+      <DependentUpon>EncriptarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaPrincipal.Designer.cs">
+      <DependentUpon>VentanaPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Enciptadores\IEncriptador.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DesencriptarForm.resx">
+      <DependentUpon>DesencriptarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EncriptarForm.resx">
+      <DependentUpon>EncriptarForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -76,6 +94,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="VentanaPrincipal.resx">
+      <DependentUpon>VentanaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\SettingsEJ07.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>SettingsEJ07.Designer.cs</LastGenOutput>

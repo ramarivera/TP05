@@ -7,7 +7,6 @@ using System.Configuration;
 using System.Collections.Specialized;
 using EJ07.Properties;
 
-
 namespace EJ07.Encriptadores
 {
 	/// <summary>
@@ -39,7 +38,7 @@ namespace EJ07.Encriptadores
 		}
 
 		/// <summary>
-		/// Obtiene el desplazamiento para inicializar el Encriptador Cesar del archivo de configuracion SettingsEJ05.settings
+		/// Obtiene el desplazamiento para inicializar el Encriptador Cesar del archivo de configuracion SettingsEJ07.settings
 		/// </summary>
 		/// <returns>Desplazamiento para inicializar el Encriptador Cesar</returns>
 		private static int GetCesarDesplazamiento()
@@ -48,7 +47,7 @@ namespace EJ07.Encriptadores
 		}
 
 		/// <summary>
-		/// Obtiene la sal para inicializar el Encriptador AES del archivo de configuracion SettingsEJ05.settings
+		/// Obtiene la sal para inicializar el Encriptador AES del archivo de configuracion SettingsEJ07.settings
 		/// </summary>
 		/// <returns>Sal para inicializar el Encriptador AES</returns>
 		private static string GetAESSal()
@@ -57,7 +56,7 @@ namespace EJ07.Encriptadores
 		}
 
 		/// <summary>
-		/// Obtiene la contraseña para inicializar el Encriptador AES del archivo de configuracion SettingsEJ05.settings
+		/// Obtiene la contraseña para inicializar el Encriptador AES del archivo de configuracion SettingsEJ07.settings
 		/// </summary>
 		/// <returns>Contraseña para inicializar el Encriptador AES</returns>
 		private static string GetAESContraseña()
@@ -66,7 +65,7 @@ namespace EJ07.Encriptadores
 		}
 
 		/// <summary>
-		/// Obtiene la posicion inicial de los anillos para inicializar el Encriptador Enigma del archivo de configuracion SettingsEJ05.settings
+		/// Obtiene la posicion inicial de los anillos para inicializar el Encriptador Enigma del archivo de configuracion SettingsEJ07.settings
 		/// </summary>
 		/// <returns>Posicion inicial de los anillos para inicializar el Encriptador Enigma</returns>
 		internal static char[] GetEnigmaAnillos ()
@@ -84,7 +83,7 @@ namespace EJ07.Encriptadores
 		}
 
 		/// <summary>
-		/// Obtiene los rotores para inicializar el Encriptador Enigma del archivo de configuracion SettingsEJ05.settings
+		/// Obtiene los rotores para inicializar el Encriptador Enigma del archivo de configuracion SettingsEJ07.settings
 		/// </summary>
 		/// <returns>Rotores para inicializar el Encriptador Enigma</returns>
 		private static int[] GetEnigmaRotores()
@@ -102,7 +101,7 @@ namespace EJ07.Encriptadores
 		}
 
 		/// <summary>
-		/// Obtiene la configuracion para el tablero de conexiones para inicializar el Encriptador Enigma del archivo de configuracion SettingsEJ05.settings
+		/// Obtiene la configuracion para el tablero de conexiones para inicializar el Encriptador Enigma del archivo de configuracion SettingsEJ07.settings
 		/// </summary>
 		/// <returns> Configuracion para el tablero de conexiones para inicializar el Encriptador Enigma</returns>
 		private static string GetEnigmaConexiones()
