@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.pesosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dólaresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.mostrarSaldoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acreditarSaldoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.debitarSaldoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripDropDownButton();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -63,24 +63,22 @@
             this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
             this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(67, 22);
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(64, 22);
             this.toolStripSplitButton1.Text = "Moneda";
             // 
             // pesosToolStripMenuItem
             // 
-            this.pesosToolStripMenuItem.Checked = true;
-            this.pesosToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.pesosToolStripMenuItem.Name = "pesosToolStripMenuItem";
             this.pesosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.pesosToolStripMenuItem.Text = "Pesos";
+            this.pesosToolStripMenuItem.Click += new System.EventHandler(this.pesosToolStripMenuItem_Click);
             // 
             // dólaresToolStripMenuItem
             // 
-            this.dólaresToolStripMenuItem.Checked = true;
-            this.dólaresToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.dólaresToolStripMenuItem.Name = "dólaresToolStripMenuItem";
             this.dólaresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.dólaresToolStripMenuItem.Text = "Dólares";
+            this.dólaresToolStripMenuItem.Click += new System.EventHandler(this.dólaresToolStripMenuItem_Click);
             // 
             // toolStripSplitButton2
             // 
@@ -92,7 +90,7 @@
             this.toolStripSplitButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton2.Image")));
             this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton2.Name = "toolStripSplitButton2";
-            this.toolStripSplitButton2.Size = new System.Drawing.Size(97, 22);
+            this.toolStripSplitButton2.Size = new System.Drawing.Size(94, 22);
             this.toolStripSplitButton2.Text = "Transacciones";
             // 
             // mostrarSaldoToolStripMenuItem
@@ -100,12 +98,14 @@
             this.mostrarSaldoToolStripMenuItem.Name = "mostrarSaldoToolStripMenuItem";
             this.mostrarSaldoToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.mostrarSaldoToolStripMenuItem.Text = "Mostrar Saldo";
+            this.mostrarSaldoToolStripMenuItem.Click += new System.EventHandler(this.mostrarSaldoToolStripMenuItem_Click);
             // 
             // acreditarSaldoToolStripMenuItem
             // 
             this.acreditarSaldoToolStripMenuItem.Name = "acreditarSaldoToolStripMenuItem";
             this.acreditarSaldoToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.acreditarSaldoToolStripMenuItem.Text = "Acreditar Saldo";
+            this.acreditarSaldoToolStripMenuItem.Click += new System.EventHandler(this.acreditarSaldoToolStripMenuItem_Click);
             // 
             // debitarSaldoToolStripMenuItem
             // 
@@ -121,7 +121,7 @@
             this.toolStripSplitButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton3.Image")));
             this.toolStripSplitButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton3.Name = "toolStripSplitButton3";
-            this.toolStripSplitButton3.Size = new System.Drawing.Size(73, 22);
+            this.toolStripSplitButton3.Size = new System.Drawing.Size(70, 22);
             this.toolStripSplitButton3.Text = "Opciones";
             // 
             // salirToolStripMenuItem
@@ -148,14 +148,14 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripSplitButton1;
         private System.Windows.Forms.ToolStripMenuItem pesosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dólaresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton2;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripSplitButton2;
         private System.Windows.Forms.ToolStripMenuItem mostrarSaldoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acreditarSaldoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem debitarSaldoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton3;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripSplitButton3;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
     }
 }
