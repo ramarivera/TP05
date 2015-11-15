@@ -13,11 +13,19 @@ namespace EJ07
 {
     public partial class DesencriptarForm : Form
     {
-        internal IEncriptador iEncriptador;
+        private Facade iFachada;
+        private string iNombreEncriptador;
 
-        public DesencriptarForm()
+        public string NombreEncriptador
+        {
+            get { return this.iNombreEncriptador; }
+            set { this.iNombreEncriptador = value; }
+        }
+
+        public DesencriptarForm(Facade pFachada)
         {
             InitializeComponent();
+            this.iFachada = pFachada;
         }
 
         private void btnDesencriptar_Click(object sender, EventArgs e)
@@ -32,7 +40,7 @@ namespace EJ07
             }
             else
             {
-                this.txtTextoDesencriptado.Text = iEncriptador.Desencriptar(this.txtTextoEncriptado.Text);
+                this.txtTextoDesencriptado.Text = this.iFachada.Desencriptar(this.iNombreEncriptador,this.txtTextoEncriptado.Text);
             }
 
         }

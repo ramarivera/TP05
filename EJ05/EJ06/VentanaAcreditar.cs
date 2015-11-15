@@ -24,7 +24,7 @@ namespace EJ06
         {
             try
             {
-                bool resultado = Form1.fachada.AcreditarSaldo(this.moneda, double.Parse(this.textBox1.Text));
+                bool resultado = Form1.cFachada.AcreditarSaldo(this.moneda, double.Parse(this.textBox1.Text));
                 if (resultado)
                 {
                     MessageBox.Show("La operacion se realizo correctamente");

@@ -27,7 +27,8 @@ namespace EJ06
                 return mon;
             }
         }
-        public Facade cFachada;
+
+        public static Facade cFachada;
    
 
         public Form1()
@@ -87,6 +88,11 @@ namespace EJ06
             ventana.Closed += (s, args) => this.Show();
             this.Hide();
             ventana.Show();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

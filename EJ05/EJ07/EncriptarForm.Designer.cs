@@ -1,4 +1,6 @@
-﻿namespace EJ07
+﻿using EJ07.Encriptadores;
+
+namespace EJ07
 {
     partial class EncriptarForm
     {
@@ -117,7 +119,6 @@
             this.Controls.Add(this.tblPrincipal);
             this.Name = "EncriptarForm";
             this.Text = "EncriptarForm";
-            this.Load += new System.EventHandler(this.EncriptarForm_Load);
             this.tblPrincipal.ResumeLayout(false);
             this.grpTextoLLano.ResumeLayout(false);
             this.grpTextoLLano.PerformLayout();
@@ -135,5 +136,8 @@
         private System.Windows.Forms.TextBox txtTextoLlano;
         private System.Windows.Forms.GroupBox grpTextoEncriptado;
         private System.Windows.Forms.TextBox txtTextoEncriptado;
+        
+
+        
     }
 }

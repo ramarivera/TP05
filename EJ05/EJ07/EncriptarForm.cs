@@ -13,17 +13,21 @@ namespace EJ07
 {
     public partial class EncriptarForm : Form
     {
-        internal IEncriptador iEncriptador;
+        private Facade iFachada;
+        private string iNombreEncriptador;
 
-        public EncriptarForm()
+        public string NombreEncriptador
+        {
+            get { return this.iNombreEncriptador; }
+            set { this.iNombreEncriptador = value; }
+        }
+
+        public EncriptarForm(Facade pFachada)
         {
             InitializeComponent();
+            this.iFachada = pFachada;
         }
 
-        private void EncriptarForm_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnEncriptar_Click(object sender, EventArgs e)
         {
@@ -37,7 +41,7 @@ namespace EJ07
             }
             else
             {
-                this.txtTextoEncriptado.Text = iEncriptador.Encriptar(this.txtTextoLlano.Text);
+                this.txtTextoEncriptado.Text = iFachada.Encriptar(this.iNombreEncriptador,this.txtTextoLlano.Text);
             }
 
         }

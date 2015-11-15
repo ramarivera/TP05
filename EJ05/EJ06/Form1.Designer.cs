@@ -69,14 +69,14 @@
             // pesosToolStripMenuItem
             // 
             this.pesosToolStripMenuItem.Name = "pesosToolStripMenuItem";
-            this.pesosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pesosToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.pesosToolStripMenuItem.Text = "Pesos";
             this.pesosToolStripMenuItem.Click += new System.EventHandler(this.pesosToolStripMenuItem_Click);
             // 
             // dólaresToolStripMenuItem
             // 
             this.dólaresToolStripMenuItem.Name = "dólaresToolStripMenuItem";
-            this.dólaresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.dólaresToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.dólaresToolStripMenuItem.Text = "Dólares";
             this.dólaresToolStripMenuItem.Click += new System.EventHandler(this.dólaresToolStripMenuItem_Click);
             // 
@@ -127,7 +127,7 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             // 
             // Form1
@@ -138,6 +138,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "Form1";
             this.Text = "Ejercicio 6";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
