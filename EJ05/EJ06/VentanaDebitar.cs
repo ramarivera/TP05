@@ -12,18 +12,38 @@ namespace EJ06
 {
     public partial class VentanaDebitar : Form
     {
-        public string moneda;
+        string moneda;
 
-        Facade cFachada = new Facade();
-        public VentanaDebitar(string monedaActual)
+        Facade fachada;
+        public VentanaDebitar(string monedaActual, Facade cFachada)
         {
             InitializeComponent();
             this.moneda = monedaActual;
+            this.fachada = cFachada;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                bool resultado = fachada.DebitarSaldo(this.moneda, double.Parse(this.textBox1.Text));
+                if (resultado)
+                {
+                    MessageBox.Show("La operacion se realizo correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("La operacion no pudo realizarse");
+                }
+            }
+            catch (MontoNegativoException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (SaldoInsuficienteException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

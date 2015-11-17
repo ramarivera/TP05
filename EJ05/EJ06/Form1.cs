@@ -28,7 +28,7 @@ namespace EJ06
             }
         }
 
-        public static Facade cFachada;
+        public Facade cFachada;
    
 
         public Form1()
@@ -84,15 +84,39 @@ namespace EJ06
 
         private void acreditarSaldoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VentanaAcreditar ventana = new VentanaAcreditar(this.monedaActual);
-            ventana.Closed += (s, args) => this.Show();
-            this.Hide();
-            ventana.Show();
+            if((this.pesosToolStripMenuItem.Checked) || (this.dólaresToolStripMenuItem.Checked))
+            {
+                VentanaAcreditar ventana = new VentanaAcreditar(this.monedaActual, this.cFachada);
+                ventana.Closed += (s, args) => this.Show();
+                this.Hide();
+                ventana.Show();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un tipo de cuenta en el Menú 'Moneda'");
+            }
+            
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void debitarSaldoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if ((this.pesosToolStripMenuItem.Checked) || (this.dólaresToolStripMenuItem.Checked))
+            {
+                VentanaDebitar ventana = new VentanaDebitar(this.monedaActual, this.cFachada);
+                ventana.Closed += (s, args) => this.Show();
+                this.Hide();
+                ventana.Show();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un tipo de cuenta en el Menú 'Moneda'");
+            }
+            
+        }
 
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

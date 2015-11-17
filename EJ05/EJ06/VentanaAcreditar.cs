@@ -12,19 +12,22 @@ namespace EJ06
 {
     public partial class VentanaAcreditar : Form
     {
-        public string moneda;
+        string moneda;
 
-        public VentanaAcreditar(string monedaActual)
+        Facade fachada;
+
+        public VentanaAcreditar(string monedaActual, Facade cFachada)
         {
             InitializeComponent();
             this.moneda = monedaActual;
+            this.fachada = cFachada;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                bool resultado = Form1.cFachada.AcreditarSaldo(this.moneda, double.Parse(this.textBox1.Text));
+                bool resultado = fachada.AcreditarSaldo(this.moneda, double.Parse(this.textBox1.Text));
                 if (resultado)
                 {
                     MessageBox.Show("La operacion se realizo correctamente");
