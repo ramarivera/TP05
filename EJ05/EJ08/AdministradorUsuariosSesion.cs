@@ -15,11 +15,12 @@ namespace EJ08
         public AdministradorUsuariosSesion()
         {
             InitializeComponent();
+            this.dgrUsuarios.DataSource = new BindingList<Usuario>(this.ParentForm.);
         }
 
         private void AdministradorUsuariosSesion_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
