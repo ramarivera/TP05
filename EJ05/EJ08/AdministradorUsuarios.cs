@@ -30,7 +30,7 @@ namespace EJ08
         {
             if(this.ActiveMdiChild != null)
             {
-                AdministradorUsuariosSesion child = (AdministradorUsuariosSesion)this.ActiveMdiChild;
+                Form child = this.ActiveMdiChild;
                 child.Close();
                 this.Show();
             }
@@ -46,5 +46,6 @@ namespace EJ08
             MessageBox.Show("Que tenga un buen día");
             this.Close();
         }
+
     }
 }

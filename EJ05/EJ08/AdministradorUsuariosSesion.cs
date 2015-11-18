@@ -33,5 +33,14 @@ namespace EJ08
 
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tblInferior_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
