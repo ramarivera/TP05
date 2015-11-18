@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EJ08.UserRepository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,18 @@ namespace EJ08
 {
     public partial class VentanaPrincipal : Form
     {
+
+        private Facade iFachada;
+
         public VentanaPrincipal()
         {
             InitializeComponent();
+            this.iFachada = new Facade();
         }
 
         private void nuevaSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AdministradorUsuariosSesion newMDIChild = new AdministradorUsuariosSesion();
+            AdministradorUsuariosSesion newMDIChild = new AdministradorUsuariosSesion(this.iFachada.ObtenerTodos());
             // Set the Parent Form of the Child window.
             newMDIChild.MdiParent = this;
             // Display the new form.
