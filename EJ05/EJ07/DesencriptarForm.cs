@@ -22,11 +22,18 @@ namespace EJ07
             set { this.iNombreEncriptador = value; }
         }
 
-        public DesencriptarForm(Facade pFachada)
+       
+
+        public DesencriptarForm()
         {
             InitializeComponent();
+        }
+
+        public DesencriptarForm(Facade pFachada)
+        {
             this.iFachada = pFachada;
         }
+
 
         private void btnDesencriptar_Click(object sender, EventArgs e)
         {
@@ -42,6 +49,11 @@ namespace EJ07
             {
                 this.txtTextoDesencriptado.Text = this.iFachada.Desencriptar(this.iNombreEncriptador,this.txtTextoEncriptado.Text);
             }
+
+        }
+
+        private void DesencriptarForm_Load(object sender, EventArgs e)
+        {
 
         }
     }

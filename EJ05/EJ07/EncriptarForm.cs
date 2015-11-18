@@ -22,11 +22,16 @@ namespace EJ07
             set { this.iNombreEncriptador = value; }
         }
 
+
+
         public EncriptarForm(Facade pFachada)
         {
             InitializeComponent();
             this.iFachada = pFachada;
         }
+
+
+
 
 
         private void btnEncriptar_Click(object sender, EventArgs e)
@@ -41,8 +46,13 @@ namespace EJ07
             }
             else
             {
-                this.txtTextoEncriptado.Text = iFachada.Encriptar(this.iNombreEncriptador,this.txtTextoLlano.Text);
+                this.txtTextoEncriptado.Text = iFachada.Encriptar(this.iNombreEncriptador, this.txtTextoLlano.Text);
             }
+
+        }
+
+        private void EncriptarForm_Load(object sender, EventArgs e)
+        {
 
         }
     }

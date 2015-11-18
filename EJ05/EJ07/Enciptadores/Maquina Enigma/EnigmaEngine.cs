@@ -136,7 +136,7 @@ namespace EnigmaMachine
 				{
 					lConv.Append(lCadena[i]);
 				}
-				if (lCadena.Length % TAMAÑO_BLOQUE == 0)
+				if ((i+1) % TAMAÑO_BLOQUE == 0)
 				{
 					lConv.Append(' ');											// Separo en Bloques
 				}

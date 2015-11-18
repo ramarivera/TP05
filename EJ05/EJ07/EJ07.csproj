@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigurarAES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigurarAES.Designer.cs">
+      <DependentUpon>ConfigurarAES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigurarEnigma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigurarEnigma.Designer.cs">
+      <DependentUpon>ConfigurarEnigma.cs</DependentUpon>
+    </Compile>
     <Compile Include="DesencriptarForm.cs">
       <SubType>Form</SubType>
     </Compile>

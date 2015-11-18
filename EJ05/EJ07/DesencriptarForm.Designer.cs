@@ -117,6 +117,7 @@
             this.Controls.Add(this.tblPrincipal);
             this.Name = "DesencriptarForm";
             this.Text = "DesencriptarForm";
+            this.Load += new System.EventHandler(this.DesencriptarForm_Load);
             this.tblPrincipal.ResumeLayout(false);
             this.grpTextoEncriptado.ResumeLayout(false);
             this.grpTextoEncriptado.PerformLayout();

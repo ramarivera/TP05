@@ -36,10 +36,10 @@
             this.mnuConfigrarEncriptadorNulo = new System.Windows.Forms.ToolStripMenuItem();
             this.tblPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.tblSuperior = new System.Windows.Forms.TableLayoutPanel();
-            this.cmbEncriptador = new System.Windows.Forms.ComboBox();
+            this.lblOperacion = new System.Windows.Forms.Label();
             this.lblEncriptador = new System.Windows.Forms.Label();
             this.cmbOperacion = new System.Windows.Forms.ComboBox();
-            this.lblOperacion = new System.Windows.Forms.Label();
+            this.cmbEncriptador = new System.Windows.Forms.ComboBox();
             this.mnuStrip.SuspendLayout();
             this.tblPrincipal.SuspendLayout();
             this.tblSuperior.SuspendLayout();
@@ -71,24 +71,28 @@
             this.mnuConfigrarEncriptadorCesar.Name = "mnuConfigrarEncriptadorCesar";
             this.mnuConfigrarEncriptadorCesar.Size = new System.Drawing.Size(178, 22);
             this.mnuConfigrarEncriptadorCesar.Text = "Encriptador Cesar";
+            this.mnuConfigrarEncriptadorCesar.Click += new System.EventHandler(this.mnuConfigrarEncriptadorCesar_Click);
             // 
             // mnuConfigrarEncriptadorAES
             // 
             this.mnuConfigrarEncriptadorAES.Name = "mnuConfigrarEncriptadorAES";
             this.mnuConfigrarEncriptadorAES.Size = new System.Drawing.Size(178, 22);
             this.mnuConfigrarEncriptadorAES.Text = "Encriptador AES";
+            this.mnuConfigrarEncriptadorAES.Click += new System.EventHandler(this.mnuConfigrarEncriptadorAES_Click);
             // 
             // mnuConfigrarEncriptadorEnigma
             // 
             this.mnuConfigrarEncriptadorEnigma.Name = "mnuConfigrarEncriptadorEnigma";
             this.mnuConfigrarEncriptadorEnigma.Size = new System.Drawing.Size(178, 22);
             this.mnuConfigrarEncriptadorEnigma.Text = "Encriptador Enigma";
+            this.mnuConfigrarEncriptadorEnigma.Click += new System.EventHandler(this.mnuConfigrarEncriptadorEnigma_Click);
             // 
             // mnuConfigrarEncriptadorNulo
             // 
             this.mnuConfigrarEncriptadorNulo.Name = "mnuConfigrarEncriptadorNulo";
             this.mnuConfigrarEncriptadorNulo.Size = new System.Drawing.Size(178, 22);
             this.mnuConfigrarEncriptadorNulo.Text = "Encriptador Nulo";
+            this.mnuConfigrarEncriptadorNulo.Click += new System.EventHandler(this.mnuConfigrarEncriptadorNulo_Click);
             // 
             // tblPrincipal
             // 
@@ -124,15 +128,15 @@
             this.tblSuperior.Size = new System.Drawing.Size(364, 32);
             this.tblSuperior.TabIndex = 3;
             // 
-            // cmbEncriptador
+            // lblOperacion
             // 
-            this.cmbEncriptador.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbEncriptador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEncriptador.FormattingEnabled = true;
-            this.cmbEncriptador.Location = new System.Drawing.Point(257, 5);
-            this.cmbEncriptador.Name = "cmbEncriptador";
-            this.cmbEncriptador.Size = new System.Drawing.Size(103, 21);
-            this.cmbEncriptador.TabIndex = 2;
+            this.lblOperacion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblOperacion.AutoSize = true;
+            this.lblOperacion.Location = new System.Drawing.Point(6, 9);
+            this.lblOperacion.Name = "lblOperacion";
+            this.lblOperacion.Size = new System.Drawing.Size(59, 13);
+            this.lblOperacion.TabIndex = 3;
+            this.lblOperacion.Text = "Operacion:";
             // 
             // lblEncriptador
             // 
@@ -154,15 +158,15 @@
             this.cmbOperacion.Size = new System.Drawing.Size(103, 21);
             this.cmbOperacion.TabIndex = 4;
             // 
-            // lblOperacion
+            // cmbEncriptador
             // 
-            this.lblOperacion.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblOperacion.AutoSize = true;
-            this.lblOperacion.Location = new System.Drawing.Point(6, 9);
-            this.lblOperacion.Name = "lblOperacion";
-            this.lblOperacion.Size = new System.Drawing.Size(59, 13);
-            this.lblOperacion.TabIndex = 3;
-            this.lblOperacion.Text = "Operacion:";
+            this.cmbEncriptador.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbEncriptador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEncriptador.FormattingEnabled = true;
+            this.cmbEncriptador.Location = new System.Drawing.Point(257, 5);
+            this.cmbEncriptador.Name = "cmbEncriptador";
+            this.cmbEncriptador.Size = new System.Drawing.Size(103, 21);
+            this.cmbEncriptador.TabIndex = 2;
             // 
             // VentanaPrincipal
             // 
