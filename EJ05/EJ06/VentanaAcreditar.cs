@@ -27,10 +27,11 @@ namespace EJ06
         {
             try
             {
-                bool resultado = fachada.AcreditarSaldo(this.moneda, double.Parse(this.textBox1.Text));
+                bool resultado = fachada.AcreditarSaldo(this.moneda, double.Parse(this.txtMonto.Text));
                 if (resultado)
                 {
                     MessageBox.Show("La operacion se realizo correctamente");
+                    this.Close();
                 }
                 else
                 {

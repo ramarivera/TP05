@@ -28,12 +28,23 @@ namespace EJ08
 
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if(this.ActiveMdiChild != null)
+            {
+                AdministradorUsuariosSesion child = (AdministradorUsuariosSesion)this.ActiveMdiChild;
+                child.Close();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("No hay ninguna sesión abierta");
+            }
+            
         }
 
         private void cerrarTodoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Que tenga un buen día");
+            this.Close();
         }
     }
 }

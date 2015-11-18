@@ -8,7 +8,7 @@ using System.Threading;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
-namespace EJ06
+namespace EJ08
 {
     //[Serializable]
     /// <summary>

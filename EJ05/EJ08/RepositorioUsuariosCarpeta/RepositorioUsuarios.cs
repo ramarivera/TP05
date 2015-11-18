@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EJ06.Exceptions;
+using EJ08.Exceptions;
 
-namespace EJ06
+namespace EJ08
 {
     /// <summary>
     /// Representa un repositorio de usuarios.

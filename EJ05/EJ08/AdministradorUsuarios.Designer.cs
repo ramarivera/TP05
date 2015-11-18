@@ -30,10 +30,10 @@
         {
             this.mnuPrincipal = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sesionesAbiertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarTodoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sesionesAbiertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,12 +59,6 @@
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
-            // sesionesAbiertasToolStripMenuItem
-            // 
-            this.sesionesAbiertasToolStripMenuItem.Name = "sesionesAbiertasToolStripMenuItem";
-            this.sesionesAbiertasToolStripMenuItem.Size = new System.Drawing.Size(110, 20);
-            this.sesionesAbiertasToolStripMenuItem.Text = "Sesiones Abiertas";
-            // 
             // nuevaSesionToolStripMenuItem
             // 
             this.nuevaSesionToolStripMenuItem.Name = "nuevaSesionToolStripMenuItem";
@@ -88,6 +82,12 @@
             this.cerrarTodoToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.cerrarTodoToolStripMenuItem.Text = "Cerrar Todo";
             this.cerrarTodoToolStripMenuItem.Click += new System.EventHandler(this.cerrarTodoToolStripMenuItem_Click);
+            // 
+            // sesionesAbiertasToolStripMenuItem
+            // 
+            this.sesionesAbiertasToolStripMenuItem.Name = "sesionesAbiertasToolStripMenuItem";
+            this.sesionesAbiertasToolStripMenuItem.Size = new System.Drawing.Size(110, 20);
+            this.sesionesAbiertasToolStripMenuItem.Text = "Sesiones Abiertas";
             // 
             // VentanaPrincipal
             // 

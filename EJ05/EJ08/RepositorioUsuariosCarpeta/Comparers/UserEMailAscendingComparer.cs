@@ -6,20 +6,22 @@ using System.Threading.Tasks;
 using System.Globalization;
 using System.Threading;
 
-namespace EJ06.Comparers
+namespace EJ08.Comparers
 {
     /// <summary>
-    /// Comparador Nulo de <see cref="Usuario"/>. Al utilizarse no afecta el ordenamiento actual.
-    /// Implementacion del patron Null Object
+    /// Comparador de <see cref="Usuario"/> por correo electronico, utilizandose para un ordenamiento por correo electronico en orden alfabetico
     /// </summary>
-    public class UserNullComparer : IComparer<Usuario>
+    public class UserEmailAscendingComparer : IComparer<Usuario>
     {
         /// <summary>
-        /// Compara dos <see cref="Usuario"/>
+        /// Compara dos <see cref="Usuario"/> segun su correo electronico, teniendo en cuenta la cultura actual e ignorando la capitalizacion
         /// </summary>
         /// <param name="pUsuario1">Primer <see cref="Usuario"/></param>
         /// <param name="pUsuario2">Segundo <see cref="Usuario"/></param>
-        /// <returns> 0, independientemente de los usuarios pasados como parametro</returns>
+        /// <returns>0 si los usuarios ocupan la misma posicion en el ordenamiento.
+        /// Mayor a 1 si Usuario1 es posterior a Usuario2 en el ordenamiento
+        /// Menor a 1 si Usuario1 es anterior a Usuario2 en el ordenamiento
+        /// </returns>
         public int Compare(Usuario pUsuario1, Usuario pUsuario2)
         {
 			if (pUsuario1== null && pUsuario2==null)
@@ -34,7 +36,7 @@ namespace EJ06.Comparers
             {
                 return 1;
             }
-            return 0;      
+            return String.Compare(pUsuario1.CorreoElectronico, pUsuario2.CorreoElectronico, true, Thread.CurrentThread.CurrentCulture);
         }
 
     }

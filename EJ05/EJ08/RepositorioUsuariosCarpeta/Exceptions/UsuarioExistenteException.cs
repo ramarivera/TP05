@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EJ06.Exceptions
+namespace EJ08.Exceptions
 {
     /// <summary>
     /// Representa la excepcion que se arroja cuando existe un usuario y se desea volver a agregar el mismo al repositorio

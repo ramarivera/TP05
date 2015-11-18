@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EJ06
+namespace EJ08
 {
     /// <summary>
     /// Clase que implementa el algoritmo de Distancia de Levenshtein. Más información https://es.wikipedia.org/wiki/Distancia_de_Levenshtein

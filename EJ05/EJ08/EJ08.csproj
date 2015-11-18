@@ -60,25 +60,25 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RepositorioUsuarios\Comparers\UserCodeAscendingComparer.cs" />
-    <Compile Include="RepositorioUsuarios\Comparers\UserCodeDescendingComparer.cs" />
-    <Compile Include="RepositorioUsuarios\Comparers\UserEMailAscendingComparer.cs" />
-    <Compile Include="RepositorioUsuarios\Comparers\UserEMailDescendingComparer.cs" />
-    <Compile Include="RepositorioUsuarios\Comparers\UserFullNameAscendingCaseSensitiveComparer.cs" />
-    <Compile Include="RepositorioUsuarios\Comparers\UserFullNameAscendingComparer.cs" />
-    <Compile Include="RepositorioUsuarios\Comparers\UserFullNameAscendingNeutralCultureCaseSensitiveComparer.cs" />
-    <Compile Include="RepositorioUsuarios\Comparers\UserFullNameAscendingNeutralCultureComparer.cs" />
-    <Compile Include="RepositorioUsuarios\Comparers\UserFullNameDescendingCaseSensitiveComparer.cs" />
-    <Compile Include="RepositorioUsuarios\Comparers\UserFullNameDescendingComparer.cs" />
-    <Compile Include="RepositorioUsuarios\Comparers\UserFullNameDescendingNeutralCultureCaseSensitiveComparer.cs" />
-    <Compile Include="RepositorioUsuarios\Comparers\UserFullNameDescendingNeutralCultureComparer.cs" />
-    <Compile Include="RepositorioUsuarios\Comparers\UserNullComparer.cs" />
-    <Compile Include="RepositorioUsuarios\IRepositorioUsuarios.cs" />
-    <Compile Include="RepositorioUsuarios\LevenshteinDistance.cs" />
-    <Compile Include="RepositorioUsuarios\RepositorioUsuarios.cs" />
-    <Compile Include="RepositorioUsuarios\Usuario.cs" />
-    <Compile Include="RepositorioUsuarios\Exceptions\UsuarioExistenteException.cs" />
-    <Compile Include="RepositorioUsuarios\Exceptions\UsuarioNoEncontradoException.cs" />
+    <Compile Include="RepositorioUsuariosCarpeta\Comparers\UserCodeAscendingComparer.cs" />
+    <Compile Include="RepositorioUsuariosCarpeta\Comparers\UserCodeDescendingComparer.cs" />
+    <Compile Include="RepositorioUsuariosCarpeta\Comparers\UserEMailAscendingComparer.cs" />
+    <Compile Include="RepositorioUsuariosCarpeta\Comparers\UserEMailDescendingComparer.cs" />
+    <Compile Include="RepositorioUsuariosCarpeta\Comparers\UserFullNameAscendingCaseSensitiveComparer.cs" />
+    <Compile Include="RepositorioUsuariosCarpeta\Comparers\UserFullNameAscendingComparer.cs" />
+    <Compile Include="RepositorioUsuariosCarpeta\Comparers\UserFullNameAscendingNeutralCultureCaseSensitiveComparer.cs" />
+    <Compile Include="RepositorioUsuariosCarpeta\Comparers\UserFullNameAscendingNeutralCultureComparer.cs" />
+    <Compile Include="RepositorioUsuariosCarpeta\Comparers\UserFullNameDescendingCaseSensitiveComparer.cs" />
+    <Compile Include="RepositorioUsuariosCarpeta\Comparers\UserFullNameDescendingComparer.cs" />
+    <Compile Include="RepositorioUsuariosCarpeta\Comparers\UserFullNameDescendingNeutralCultureCaseSensitiveComparer.cs" />
+    <Compile Include="RepositorioUsuariosCarpeta\Comparers\UserFullNameDescendingNeutralCultureComparer.cs" />
+    <Compile Include="RepositorioUsuariosCarpeta\Comparers\UserNullComparer.cs" />
+    <Compile Include="RepositorioUsuariosCarpeta\IRepositorioUsuarios.cs" />
+    <Compile Include="RepositorioUsuariosCarpeta\LevenshteinDistance.cs" />
+    <Compile Include="RepositorioUsuariosCarpeta\RepositorioUsuarios.cs" />
+    <Compile Include="RepositorioUsuariosCarpeta\Usuario.cs" />
+    <Compile Include="RepositorioUsuariosCarpeta\Exceptions\UsuarioExistenteException.cs" />
+    <Compile Include="RepositorioUsuariosCarpeta\Exceptions\UsuarioNoEncontradoException.cs" />
     <EmbeddedResource Include="AdministradorUsuarios.resx">
       <DependentUpon>AdministradorUsuarios.cs</DependentUpon>
     </EmbeddedResource>

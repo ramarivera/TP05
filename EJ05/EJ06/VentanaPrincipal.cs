@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace EJ06
 {
-    public partial class Form1 : Form
+    public partial class VentanaPrincipal : Form
     {
         public string monedaActual
         {
@@ -20,7 +20,7 @@ namespace EJ06
                 {
                     mon = "ARS";
                 }
-                else if (this.dólaresToolStripMenuItem.Checked)
+                else if (this.dolaresToolStripMenuItem.Checked)
                 {
                     mon = "USD";
                 }
@@ -31,7 +31,7 @@ namespace EJ06
         public Facade cFachada;
    
 
-        public Form1()
+        public VentanaPrincipal()
         {
             InitializeComponent();
             cFachada = new Facade();
@@ -46,20 +46,20 @@ namespace EJ06
             else
             {
                 this.pesosToolStripMenuItem.Checked = true;
-                this.dólaresToolStripMenuItem.Checked = false;
+                this.dolaresToolStripMenuItem.Checked = false;
             }
             
         }
 
         private void dólaresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.dólaresToolStripMenuItem.Checked)
+            if (this.dolaresToolStripMenuItem.Checked)
             {
-                this.dólaresToolStripMenuItem.Checked = false;
+                this.dolaresToolStripMenuItem.Checked = false;
             }
             else
             {
-                this.dólaresToolStripMenuItem.Checked = true;
+                this.dolaresToolStripMenuItem.Checked = true;
                 this.pesosToolStripMenuItem.Checked = false;
             }
         }
@@ -71,7 +71,7 @@ namespace EJ06
                 Cuenta lCuenta = cFachada.GetCuenta("ARS");
                 MessageBox.Show("El saldo de la cuenta es de "+lCuenta.Moneda.Simbolo+lCuenta.Saldo);
             }
-            else if (this.dólaresToolStripMenuItem.Checked)
+            else if (this.dolaresToolStripMenuItem.Checked)
             {
                 Cuenta lCuenta = cFachada.GetCuenta("USD");
                 MessageBox.Show("El saldo de la cuenta es de " + lCuenta.Moneda.Simbolo + lCuenta.Saldo);
@@ -84,7 +84,7 @@ namespace EJ06
 
         private void acreditarSaldoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if((this.pesosToolStripMenuItem.Checked) || (this.dólaresToolStripMenuItem.Checked))
+            if((this.pesosToolStripMenuItem.Checked) || (this.dolaresToolStripMenuItem.Checked))
             {
                 VentanaAcreditar ventana = new VentanaAcreditar(this.monedaActual, this.cFachada);
                 ventana.Closed += (s, args) => this.Show();
@@ -100,7 +100,7 @@ namespace EJ06
 
         private void debitarSaldoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ((this.pesosToolStripMenuItem.Checked) || (this.dólaresToolStripMenuItem.Checked))
+            if ((this.pesosToolStripMenuItem.Checked) || (this.dolaresToolStripMenuItem.Checked))
             {
                 VentanaDebitar ventana = new VentanaDebitar(this.monedaActual, this.cFachada);
                 ventana.Closed += (s, args) => this.Show();

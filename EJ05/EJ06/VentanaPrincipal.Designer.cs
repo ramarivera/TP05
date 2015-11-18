@@ -1,6 +1,6 @@
 ﻿namespace EJ06
 {
-    partial class Form1
+    partial class VentanaPrincipal
     {
         /// <summary>
         /// Required designer variable.
@@ -28,71 +28,71 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentanaPrincipal));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.monedaStripSplitButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.pesosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dólaresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.dolaresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transaccionesStripSplitButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.mostrarSaldoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acreditarSaldoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.debitarSaldoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.opcionesStripSplitButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSplitButton1,
-            this.toolStripSplitButton2,
-            this.toolStripSplitButton3});
+            this.monedaStripSplitButton,
+            this.transaccionesStripSplitButton,
+            this.opcionesStripSplitButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(571, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripSplitButton1
+            // monedaStripSplitButton
             // 
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.monedaStripSplitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.monedaStripSplitButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pesosToolStripMenuItem,
-            this.dólaresToolStripMenuItem});
-            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(64, 22);
-            this.toolStripSplitButton1.Text = "Moneda";
+            this.dolaresToolStripMenuItem});
+            this.monedaStripSplitButton.Image = ((System.Drawing.Image)(resources.GetObject("monedaStripSplitButton.Image")));
+            this.monedaStripSplitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.monedaStripSplitButton.Name = "monedaStripSplitButton";
+            this.monedaStripSplitButton.Size = new System.Drawing.Size(64, 22);
+            this.monedaStripSplitButton.Text = "Moneda";
             // 
             // pesosToolStripMenuItem
             // 
             this.pesosToolStripMenuItem.Name = "pesosToolStripMenuItem";
-            this.pesosToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.pesosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.pesosToolStripMenuItem.Text = "Pesos";
             this.pesosToolStripMenuItem.Click += new System.EventHandler(this.pesosToolStripMenuItem_Click);
             // 
-            // dólaresToolStripMenuItem
+            // dolaresToolStripMenuItem
             // 
-            this.dólaresToolStripMenuItem.Name = "dólaresToolStripMenuItem";
-            this.dólaresToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-            this.dólaresToolStripMenuItem.Text = "Dólares";
-            this.dólaresToolStripMenuItem.Click += new System.EventHandler(this.dólaresToolStripMenuItem_Click);
+            this.dolaresToolStripMenuItem.Name = "dolaresToolStripMenuItem";
+            this.dolaresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.dolaresToolStripMenuItem.Text = "Dólares";
+            this.dolaresToolStripMenuItem.Click += new System.EventHandler(this.dólaresToolStripMenuItem_Click);
             // 
-            // toolStripSplitButton2
+            // transaccionesStripSplitButton
             // 
-            this.toolStripSplitButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripSplitButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.transaccionesStripSplitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.transaccionesStripSplitButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mostrarSaldoToolStripMenuItem,
             this.acreditarSaldoToolStripMenuItem,
             this.debitarSaldoToolStripMenuItem});
-            this.toolStripSplitButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton2.Image")));
-            this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton2.Name = "toolStripSplitButton2";
-            this.toolStripSplitButton2.Size = new System.Drawing.Size(94, 22);
-            this.toolStripSplitButton2.Text = "Transacciones";
+            this.transaccionesStripSplitButton.Image = ((System.Drawing.Image)(resources.GetObject("transaccionesStripSplitButton.Image")));
+            this.transaccionesStripSplitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.transaccionesStripSplitButton.Name = "transaccionesStripSplitButton";
+            this.transaccionesStripSplitButton.Size = new System.Drawing.Size(94, 22);
+            this.transaccionesStripSplitButton.Text = "Transacciones";
             // 
             // mostrarSaldoToolStripMenuItem
             // 
@@ -115,16 +115,16 @@
             this.debitarSaldoToolStripMenuItem.Text = "Debitar Saldo";
             this.debitarSaldoToolStripMenuItem.Click += new System.EventHandler(this.debitarSaldoToolStripMenuItem_Click);
             // 
-            // toolStripSplitButton3
+            // opcionesStripSplitButton
             // 
-            this.toolStripSplitButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripSplitButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.opcionesStripSplitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.opcionesStripSplitButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.salirToolStripMenuItem});
-            this.toolStripSplitButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton3.Image")));
-            this.toolStripSplitButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton3.Name = "toolStripSplitButton3";
-            this.toolStripSplitButton3.Size = new System.Drawing.Size(70, 22);
-            this.toolStripSplitButton3.Text = "Opciones";
+            this.opcionesStripSplitButton.Image = ((System.Drawing.Image)(resources.GetObject("opcionesStripSplitButton.Image")));
+            this.opcionesStripSplitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.opcionesStripSplitButton.Name = "opcionesStripSplitButton";
+            this.opcionesStripSplitButton.Size = new System.Drawing.Size(70, 22);
+            this.opcionesStripSplitButton.Text = "Opciones";
             // 
             // salirToolStripMenuItem
             // 
@@ -133,24 +133,24 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
-            // label1
+            // lblInfo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(447, 26);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Bienvenido. Antes de comenzar por favor seleccione el tipo de moneda en el menú \'" +
-            "Moneda\' \n\rDe lo contrario no podrá realizar transacciones";
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Location = new System.Drawing.Point(29, 53);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(447, 26);
+            this.lblInfo.TabIndex = 1;
+            this.lblInfo.Text = "Bienvenido. Antes de comenzar por favor seleccione el tipo de moneda en el menú \'" +
+    "Moneda\' \n\rDe lo contrario no podrá realizar transacciones";
             // 
-            // Form1
+            // VentanaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(571, 258);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.toolStrip1);
-            this.Name = "Form1";
+            this.Name = "VentanaPrincipal";
             this.Text = "Ejercicio 6";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -162,16 +162,16 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripSplitButton1;
+        private System.Windows.Forms.ToolStripDropDownButton monedaStripSplitButton;
         private System.Windows.Forms.ToolStripMenuItem pesosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dólaresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripSplitButton2;
+        private System.Windows.Forms.ToolStripMenuItem dolaresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripDropDownButton transaccionesStripSplitButton;
         private System.Windows.Forms.ToolStripMenuItem mostrarSaldoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acreditarSaldoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem debitarSaldoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripSplitButton3;
+        private System.Windows.Forms.ToolStripDropDownButton opcionesStripSplitButton;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblInfo;
     }
 }
 

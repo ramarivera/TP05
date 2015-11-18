@@ -28,181 +28,180 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            
+            this.lblInfo = new System.Windows.Forms.Label();
+            this.lblP1CoordX = new System.Windows.Forms.Label();
+            this.lblP1CoordY = new System.Windows.Forms.Label();
+            this.lblP2CoordX = new System.Windows.Forms.Label();
+            this.lblP2CoordY = new System.Windows.Forms.Label();
+            this.lblP3CoordX = new System.Windows.Forms.Label();
+            this.lblP3CoordY = new System.Windows.Forms.Label();
+            this.txtP1CoordX = new System.Windows.Forms.TextBox();
+            this.txtP1CoordY = new System.Windows.Forms.TextBox();
+            this.txtP2CoordX = new System.Windows.Forms.TextBox();
+            this.txtP2CoordY = new System.Windows.Forms.TextBox();
+            this.txtP3CoordX = new System.Windows.Forms.TextBox();
+            this.txtP3CoordY = new System.Windows.Forms.TextBox();
+            this.btnPerimetro = new System.Windows.Forms.Button();
+            this.btnArea = new System.Windows.Forms.Button();
+            this.btnAtras = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lblInfo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(269, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Ingrese las coordenadas de los tres puntos del triángulo";
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Location = new System.Drawing.Point(37, 32);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(269, 13);
+            this.lblInfo.TabIndex = 0;
+            this.lblInfo.Text = "Ingrese las coordenadas de los tres puntos del triángulo";
             // 
-            // label2
+            // lblP1CoordX
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Punto 1: Coordenada X";
+            this.lblP1CoordX.AutoSize = true;
+            this.lblP1CoordX.Location = new System.Drawing.Point(37, 62);
+            this.lblP1CoordX.Name = "lblP1CoordX";
+            this.lblP1CoordX.Size = new System.Drawing.Size(118, 13);
+            this.lblP1CoordX.TabIndex = 1;
+            this.lblP1CoordX.Text = "Punto 1: Coordenada X";
             // 
-            // label3
+            // lblP1CoordY
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(37, 92);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Punto 1: Coordenada Y";
+            this.lblP1CoordY.AutoSize = true;
+            this.lblP1CoordY.Location = new System.Drawing.Point(37, 92);
+            this.lblP1CoordY.Name = "lblP1CoordY";
+            this.lblP1CoordY.Size = new System.Drawing.Size(118, 13);
+            this.lblP1CoordY.TabIndex = 2;
+            this.lblP1CoordY.Text = "Punto 1: Coordenada Y";
             // 
-            // label4
+            // lblP2CoordX
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(37, 122);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Punto 2: Coordenada X";
+            this.lblP2CoordX.AutoSize = true;
+            this.lblP2CoordX.Location = new System.Drawing.Point(37, 122);
+            this.lblP2CoordX.Name = "lblP2CoordX";
+            this.lblP2CoordX.Size = new System.Drawing.Size(118, 13);
+            this.lblP2CoordX.TabIndex = 3;
+            this.lblP2CoordX.Text = "Punto 2: Coordenada X";
             // 
-            // label5
+            // lblP2CoordY
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(37, 152);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(118, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Punto 2: Coordenada Y";
+            this.lblP2CoordY.AutoSize = true;
+            this.lblP2CoordY.Location = new System.Drawing.Point(37, 152);
+            this.lblP2CoordY.Name = "lblP2CoordY";
+            this.lblP2CoordY.Size = new System.Drawing.Size(118, 13);
+            this.lblP2CoordY.TabIndex = 4;
+            this.lblP2CoordY.Text = "Punto 2: Coordenada Y";
             // 
-            // label6
+            // lblP3CoordX
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(37, 182);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Punto 3: Coordenada X";
+            this.lblP3CoordX.AutoSize = true;
+            this.lblP3CoordX.Location = new System.Drawing.Point(37, 182);
+            this.lblP3CoordX.Name = "lblP3CoordX";
+            this.lblP3CoordX.Size = new System.Drawing.Size(118, 13);
+            this.lblP3CoordX.TabIndex = 5;
+            this.lblP3CoordX.Text = "Punto 3: Coordenada X";
             // 
-            // label7
+            // lblP3CoordY
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(37, 214);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(118, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Punto 3: Coordenada Y";
+            this.lblP3CoordY.AutoSize = true;
+            this.lblP3CoordY.Location = new System.Drawing.Point(37, 214);
+            this.lblP3CoordY.Name = "lblP3CoordY";
+            this.lblP3CoordY.Size = new System.Drawing.Size(118, 13);
+            this.lblP3CoordY.TabIndex = 6;
+            this.lblP3CoordY.Text = "Punto 3: Coordenada Y";
             // 
-            // textBox1
+            // txtP1CoordX
             // 
-            this.textBox1.Location = new System.Drawing.Point(161, 59);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(37, 20);
-            this.textBox1.TabIndex = 7;
+            this.txtP1CoordX.Location = new System.Drawing.Point(161, 59);
+            this.txtP1CoordX.Name = "txtP1CoordX";
+            this.txtP1CoordX.Size = new System.Drawing.Size(37, 20);
+            this.txtP1CoordX.TabIndex = 7;
             // 
-            // textBox2
+            // txtP1CoordY
             // 
-            this.textBox2.Location = new System.Drawing.Point(161, 89);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(37, 20);
-            this.textBox2.TabIndex = 8;
+            this.txtP1CoordY.Location = new System.Drawing.Point(161, 89);
+            this.txtP1CoordY.Name = "txtP1CoordY";
+            this.txtP1CoordY.Size = new System.Drawing.Size(37, 20);
+            this.txtP1CoordY.TabIndex = 8;
             // 
-            // textBox3
+            // txtP2CoordX
             // 
-            this.textBox3.Location = new System.Drawing.Point(161, 119);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(37, 20);
-            this.textBox3.TabIndex = 9;
+            this.txtP2CoordX.Location = new System.Drawing.Point(161, 119);
+            this.txtP2CoordX.Name = "txtP2CoordX";
+            this.txtP2CoordX.Size = new System.Drawing.Size(37, 20);
+            this.txtP2CoordX.TabIndex = 9;
             // 
-            // textBox4
+            // txtP2CoordY
             // 
-            this.textBox4.Location = new System.Drawing.Point(161, 149);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(37, 20);
-            this.textBox4.TabIndex = 10;
+            this.txtP2CoordY.Location = new System.Drawing.Point(161, 149);
+            this.txtP2CoordY.Name = "txtP2CoordY";
+            this.txtP2CoordY.Size = new System.Drawing.Size(37, 20);
+            this.txtP2CoordY.TabIndex = 10;
             // 
-            // textBox5
+            // txtP3CoordX
             // 
-            this.textBox5.Location = new System.Drawing.Point(161, 179);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(37, 20);
-            this.textBox5.TabIndex = 11;
+            this.txtP3CoordX.Location = new System.Drawing.Point(161, 179);
+            this.txtP3CoordX.Name = "txtP3CoordX";
+            this.txtP3CoordX.Size = new System.Drawing.Size(37, 20);
+            this.txtP3CoordX.TabIndex = 11;
             // 
-            // textBox6
+            // txtP3CoordY
             // 
-            this.textBox6.Location = new System.Drawing.Point(161, 211);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(37, 20);
-            this.textBox6.TabIndex = 12;
+            this.txtP3CoordY.Location = new System.Drawing.Point(161, 211);
+            this.txtP3CoordY.Name = "txtP3CoordY";
+            this.txtP3CoordY.Size = new System.Drawing.Size(37, 20);
+            this.txtP3CoordY.TabIndex = 12;
             // 
-            // button1
+            // btnPerimetro
             // 
-            this.button1.Location = new System.Drawing.Point(150, 240);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Perímetro";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnPerimetro.Location = new System.Drawing.Point(150, 240);
+            this.btnPerimetro.Name = "btnPerimetro";
+            this.btnPerimetro.Size = new System.Drawing.Size(75, 23);
+            this.btnPerimetro.TabIndex = 13;
+            this.btnPerimetro.Text = "Perímetro";
+            this.btnPerimetro.UseVisualStyleBackColor = true;
+            this.btnPerimetro.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnArea
             // 
-            this.button2.Location = new System.Drawing.Point(231, 240);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Área";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnArea.Location = new System.Drawing.Point(231, 240);
+            this.btnArea.Name = "btnArea";
+            this.btnArea.Size = new System.Drawing.Size(75, 23);
+            this.btnArea.TabIndex = 14;
+            this.btnArea.Text = "Área";
+            this.btnArea.UseVisualStyleBackColor = true;
+            this.btnArea.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btnAtras
             // 
-            this.button3.Location = new System.Drawing.Point(12, 240);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "Atrás";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnAtras.Location = new System.Drawing.Point(12, 240);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(75, 23);
+            this.btnAtras.TabIndex = 15;
+            this.btnAtras.Text = "Atrás";
+            this.btnAtras.UseVisualStyleBackColor = true;
+            this.btnAtras.Click += new System.EventHandler(this.button3_Click);
             // 
             // VentanaTriangulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(335, 281);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtP3CoordY);
+            this.Controls.Add(this.txtP3CoordX);
+            this.Controls.Add(this.txtP2CoordY);
+            this.Controls.Add(this.lblP3CoordY);
+            this.Controls.Add(this.lblP3CoordX);
+            this.Controls.Add(this.lblP2CoordY);
+            this.Controls.Add(this.btnAtras);
+            this.Controls.Add(this.btnArea);
+            this.Controls.Add(this.btnPerimetro);
+            this.Controls.Add(this.txtP2CoordX);
+            this.Controls.Add(this.lblP2CoordX);
+            this.Controls.Add(this.txtP1CoordY);
+            this.Controls.Add(this.txtP1CoordX);
+            this.Controls.Add(this.lblP1CoordY);
+            this.Controls.Add(this.lblP1CoordX);
+            this.Controls.Add(this.lblInfo);
             this.Name = "VentanaTriangulo";
             this.Text = "VentanaTriangulo";
             this.ResumeLayout(false);
@@ -212,22 +211,22 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Label lblP1CoordX;
+        private System.Windows.Forms.Label lblP1CoordY;
+        private System.Windows.Forms.TextBox txtP1CoordX;
+        private System.Windows.Forms.TextBox txtP1CoordY;
+        private System.Windows.Forms.Label lblP2CoordX;
+        private System.Windows.Forms.TextBox txtP2CoordX;
+        private System.Windows.Forms.Button btnPerimetro;
+        private System.Windows.Forms.Button btnArea;
+        private System.Windows.Forms.Button btnAtras;
+        private System.Windows.Forms.Label lblP2CoordY;
+        private System.Windows.Forms.Label lblP3CoordX;
+        private System.Windows.Forms.Label lblP3CoordY;
+        private System.Windows.Forms.TextBox txtP2CoordY;
+        private System.Windows.Forms.TextBox txtP3CoordX;
+        private System.Windows.Forms.TextBox txtP3CoordY;
     }
 
 

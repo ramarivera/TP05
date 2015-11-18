@@ -36,16 +36,19 @@
             this.tblPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.tblInferior = new System.Windows.Forms.TableLayoutPanel();
             this.tblSuperior = new System.Windows.Forms.TableLayoutPanel();
+            this.tblEliminar = new System.Windows.Forms.TableLayoutPanel();
             this.tblAceptar = new System.Windows.Forms.TableLayoutPanel();
             this.tblActualizar = new System.Windows.Forms.TableLayoutPanel();
-            this.tblEliminar = new System.Windows.Forms.TableLayoutPanel();
+            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgrUsuarios)).BeginInit();
             this.tblPrincipal.SuspendLayout();
             this.tblInferior.SuspendLayout();
             this.tblSuperior.SuspendLayout();
+            this.tblEliminar.SuspendLayout();
             this.tblAceptar.SuspendLayout();
             this.tblActualizar.SuspendLayout();
-            this.tblEliminar.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAgregar
@@ -57,6 +60,7 @@
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnActualizar
             // 
@@ -90,6 +94,10 @@
             // dgrUsuarios
             // 
             this.dgrUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colCodigo,
+            this.colNombre,
+            this.colEmail});
             this.dgrUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrUsuarios.Location = new System.Drawing.Point(3, 3);
             this.dgrUsuarios.Name = "dgrUsuarios";
@@ -124,7 +132,7 @@
             this.tblInferior.Name = "tblInferior";
             this.tblInferior.RowCount = 1;
             this.tblInferior.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblInferior.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 114F));
+            this.tblInferior.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 162F));
             this.tblInferior.Size = new System.Drawing.Size(436, 162);
             this.tblInferior.TabIndex = 0;
             // 
@@ -146,6 +154,23 @@
             this.tblSuperior.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.tblSuperior.Size = new System.Drawing.Size(436, 92);
             this.tblSuperior.TabIndex = 1;
+            // 
+            // tblEliminar
+            // 
+            this.tblEliminar.ColumnCount = 3;
+            this.tblEliminar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tblEliminar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tblEliminar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tblEliminar.Controls.Add(this.btnEliminar, 1, 1);
+            this.tblEliminar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblEliminar.Location = new System.Drawing.Point(293, 3);
+            this.tblEliminar.Name = "tblEliminar";
+            this.tblEliminar.RowCount = 3;
+            this.tblEliminar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tblEliminar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tblEliminar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tblEliminar.Size = new System.Drawing.Size(140, 86);
+            this.tblEliminar.TabIndex = 9;
             // 
             // tblAceptar
             // 
@@ -181,22 +206,20 @@
             this.tblActualizar.Size = new System.Drawing.Size(139, 86);
             this.tblActualizar.TabIndex = 8;
             // 
-            // tblEliminar
+            // colCodigo
             // 
-            this.tblEliminar.ColumnCount = 3;
-            this.tblEliminar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tblEliminar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tblEliminar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tblEliminar.Controls.Add(this.btnEliminar, 1, 1);
-            this.tblEliminar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblEliminar.Location = new System.Drawing.Point(293, 3);
-            this.tblEliminar.Name = "tblEliminar";
-            this.tblEliminar.RowCount = 3;
-            this.tblEliminar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tblEliminar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tblEliminar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tblEliminar.Size = new System.Drawing.Size(140, 86);
-            this.tblEliminar.TabIndex = 9;
+            this.colCodigo.HeaderText = "Código";
+            this.colCodigo.Name = "colCodigo";
+            // 
+            // colNombre
+            // 
+            this.colNombre.HeaderText = "Nombre";
+            this.colNombre.Name = "colNombre";
+            // 
+            // colEmail
+            // 
+            this.colEmail.HeaderText = "Email";
+            this.colEmail.Name = "colEmail";
             // 
             // AdministradorUsuariosSesion
             // 
@@ -211,9 +234,9 @@
             this.tblPrincipal.ResumeLayout(false);
             this.tblInferior.ResumeLayout(false);
             this.tblSuperior.ResumeLayout(false);
+            this.tblEliminar.ResumeLayout(false);
             this.tblAceptar.ResumeLayout(false);
             this.tblActualizar.ResumeLayout(false);
-            this.tblEliminar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -231,5 +254,8 @@
         private System.Windows.Forms.TableLayoutPanel tblAceptar;
         private System.Windows.Forms.TableLayoutPanel tblEliminar;
         private System.Windows.Forms.TableLayoutPanel tblActualizar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
     }
 }

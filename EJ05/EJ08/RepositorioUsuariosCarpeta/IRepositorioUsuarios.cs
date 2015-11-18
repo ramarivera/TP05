@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EJ06
+namespace EJ08
 {
     /// <summary>
     /// Interfaz para los Repositorios de Usuarios. Define operaciones comunes a los mismos

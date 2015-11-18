@@ -27,13 +27,13 @@ namespace EJ05
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if ((this.textBox1.Text == "") || (this.textBox2.Text=="") || (this.textBox3.Text == ""))
+            if ((this.txtCoorX.Text == "") || (this.txtCoordY.Text=="") || (this.txtRadio.Text == ""))
             {
                 MessageBox.Show("Faltan datos");
             }
             else
             {
-                double per =this.cFachada.CalcularPerimetroCirculo(double.Parse(this.textBox1.Text),double.Parse(this.textBox2.Text),double.Parse(this.textBox3.Text));
+                double per =this.cFachada.CalcularPerimetroCirculo(double.Parse(this.txtCoorX.Text),double.Parse(this.txtCoordY.Text),double.Parse(this.txtRadio.Text));
                 MessageBox.Show("El perímetro del círculo es: "+ per.ToString(),"Perímetro");
             }
 
@@ -41,13 +41,13 @@ namespace EJ05
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if ((this.textBox1.Text == "") || (this.textBox2.Text == "") || (this.textBox3.Text == ""))
+            if ((this.txtCoorX.Text == "") || (this.txtCoordY.Text == "") || (this.txtRadio.Text == ""))
             {
                 MessageBox.Show("Faltan datos");
             }
             else
             {
-                double area = this.cFachada.CalcularAreaCirculo(double.Parse(this.textBox1.Text), double.Parse(this.textBox2.Text), double.Parse(this.textBox3.Text));
+                double area = this.cFachada.CalcularAreaCirculo(double.Parse(this.txtCoorX.Text), double.Parse(this.txtCoordY.Text), double.Parse(this.txtRadio.Text));
                 MessageBox.Show("El área del círculo es: " + area.ToString(), "Área");
             }
         }
