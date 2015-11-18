@@ -3,24 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
+using System.Threading;
 
-
-namespace EJ08.Comparers
+namespace EJ08.UserRepository.Comparers
 {
     /// <summary>
-    /// Comparador de <see cref="Usuario"/> por nombre completo, utilizandose para un ordenamiento por nombre completo en orden alfabetico
+    /// Comparador Nulo de <see cref="Usuario"/>. Al utilizarse no afecta el ordenamiento actual.
+    /// Implementacion del patron Null Object
     /// </summary>
-    public class UserFullNameAscendingNeutralCultureComparer : IComparer<Usuario>
+    public class UserNullComparer : IComparer<Usuario>
     {
         /// <summary>
-        /// Compara dos <see cref="Usuario"/> segun su nombre completo, ignorando informacion de la cultura actual y la capitalizacion
+        /// Compara dos <see cref="Usuario"/>
         /// </summary>
         /// <param name="pUsuario1">Primer <see cref="Usuario"/></param>
         /// <param name="pUsuario2">Segundo <see cref="Usuario"/></param>
-        /// <returns>0 si los usuarios ocupan la misma posicion en el ordenamiento.
-        /// Mayor a 1 si Usuario1 es posterior a Usuario2 en el ordenamiento
-        /// Menor a 1 si Usuario1 es anterior a Usuario2 en el ordenamiento
-        /// </returns>
+        /// <returns> 0, independientemente de los usuarios pasados como parametro</returns>
         public int Compare(Usuario pUsuario1, Usuario pUsuario2)
         {
 			if (pUsuario1== null && pUsuario2==null)
@@ -35,9 +34,8 @@ namespace EJ08.Comparers
             {
                 return 1;
             }
-            return String.Compare(pUsuario1.NombreCompleto, pUsuario2.NombreCompleto, true);
+            return 0;      
         }
 
     }
 }
-

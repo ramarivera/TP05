@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Globalization;
-using System.Threading;
 
-namespace EJ08.Comparers
+namespace EJ08.UserRepository.Comparers
 {
     /// <summary>
-    /// Comparador de <see cref="Usuario"/> por nombre completo, utilizandose para un ordenamiento por nombre completo en orden alfabetico
+    /// Comparador de <see cref="Usuario"/> por nombre completo, utilizandose para un ordenamiento por nombre completo en orden alfabetico inverso
     /// </summary>
-    public class UserFullNameAscendingCaseSensitiveComparer : IComparer<Usuario>
+    public class UserFullNameDescendingCaseSensitiveComparer : IComparer<Usuario>
     {
         /// <summary>
         /// Compara dos <see cref="Usuario"/> segun su nombre completo, teniendo en cuenta la cultura actual y la capitalizacion
@@ -24,19 +22,7 @@ namespace EJ08.Comparers
         /// </returns>
         public int Compare(Usuario pUsuario1, Usuario pUsuario2)
         {
-			if (pUsuario1== null && pUsuario2==null)
-            {
-                return 0;
-            }
-            else if (pUsuario1 == null)
-            {
-                return -1;
-            }
-            else if (pUsuario2 == null)
-            {
-                return 1;
-            }
-            return String.Compare(pUsuario1.NombreCompleto, pUsuario2.NombreCompleto, false, Thread.CurrentThread.CurrentCulture);
+            return (-1) * (new UserFullNameAscendingCaseSensitiveComparer()).Compare(pUsuario1, pUsuario2);
         }
 
     }

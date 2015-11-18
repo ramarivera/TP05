@@ -7,6 +7,9 @@ using System.Globalization;
 using System.Threading;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using EJ08.UserRepository;
+
+
 
 namespace EJ08
 {
@@ -80,7 +83,7 @@ namespace EJ08
         /// <returns></returns>
         int IComparable<Usuario>.CompareTo(Usuario lUsuario)
         {
-            return (new Comparers.UserCodeAscendingComparer()).Compare(this, lUsuario);
+            return (new UserRepository.Comparers.UserCodeAscendingComparer()).Compare(this, lUsuario);
         }
 
         #region Usuario - Metodos Sobrecargados (Equals, ToString, GetHashCode)

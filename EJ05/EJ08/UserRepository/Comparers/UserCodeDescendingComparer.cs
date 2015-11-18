@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Globalization;
 using System.Threading;
 
-namespace EJ08.Comparers
+namespace EJ08.UserRepository.Comparers
 {
     /// <summary>
     /// Comparador de <see cref="Usuario"/> por codigo, utilizandose para un ordenamiento por codigo descendente
