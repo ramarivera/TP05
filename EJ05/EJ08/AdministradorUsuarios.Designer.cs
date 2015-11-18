@@ -34,6 +34,7 @@
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarTodoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sesionesAbiertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevaSesionConNombreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +55,8 @@
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevaSesionToolStripMenuItem,
             this.cerrarSesionToolStripMenuItem,
-            this.cerrarTodoToolStripMenuItem});
+            this.cerrarTodoToolStripMenuItem,
+            this.nuevaSesionConNombreToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
@@ -63,7 +65,7 @@
             // 
             this.nuevaSesionToolStripMenuItem.Name = "nuevaSesionToolStripMenuItem";
             this.nuevaSesionToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.nuevaSesionToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.nuevaSesionToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.nuevaSesionToolStripMenuItem.Text = "Nueva Sesion";
             this.nuevaSesionToolStripMenuItem.Click += new System.EventHandler(this.nuevaSesionToolStripMenuItem_Click);
             // 
@@ -71,7 +73,7 @@
             // 
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
             this.cerrarSesionToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
@@ -79,7 +81,7 @@
             // 
             this.cerrarTodoToolStripMenuItem.Name = "cerrarTodoToolStripMenuItem";
             this.cerrarTodoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F4)));
-            this.cerrarTodoToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.cerrarTodoToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.cerrarTodoToolStripMenuItem.Text = "Cerrar Todo";
             this.cerrarTodoToolStripMenuItem.Click += new System.EventHandler(this.cerrarTodoToolStripMenuItem_Click);
             // 
@@ -88,6 +90,12 @@
             this.sesionesAbiertasToolStripMenuItem.Name = "sesionesAbiertasToolStripMenuItem";
             this.sesionesAbiertasToolStripMenuItem.Size = new System.Drawing.Size(110, 20);
             this.sesionesAbiertasToolStripMenuItem.Text = "Sesiones Abiertas";
+            // 
+            // nuevaSesionConNombreToolStripMenuItem
+            // 
+            this.nuevaSesionConNombreToolStripMenuItem.Name = "nuevaSesionConNombreToolStripMenuItem";
+            this.nuevaSesionConNombreToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.nuevaSesionConNombreToolStripMenuItem.Text = "Nueva Sesion con Nombre ";
             // 
             // VentanaPrincipal
             // 
@@ -115,6 +123,7 @@
         private System.Windows.Forms.ToolStripMenuItem cerrarSesionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarTodoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sesionesAbiertasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nuevaSesionConNombreToolStripMenuItem;
     }
 }
 
