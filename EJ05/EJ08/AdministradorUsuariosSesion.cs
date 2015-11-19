@@ -39,7 +39,7 @@ namespace EJ08
 
         private void AdministradorUsuariosSesion_FormClosing1(object sender, FormClosingEventArgs e)
         {
-            DialogResult resultado = MessageBox.Show("¿Desea guardar los cambios?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            DialogResult resultado = MessageBox.Show("¿Desea guardar los cambios?", "Salir", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
             switch (resultado)
             {
                 case DialogResult.Cancel:
@@ -47,10 +47,10 @@ namespace EJ08
                     break;
                 case DialogResult.Yes:
                     btnGuardarCambios.PerformClick();
-                    ((AdministradorUsuarios)this.Parent).cantidadHijos--;
+                    ((AdministradorUsuarios)this.ParentForm).cantidadHijos--;
                     break;
                 case DialogResult.No:
-                    ((AdministradorUsuarios)this.Parent).cantidadHijos--;
+                    ((AdministradorUsuarios)this.ParentForm).cantidadHijos--;
                     break;
             }
         }
