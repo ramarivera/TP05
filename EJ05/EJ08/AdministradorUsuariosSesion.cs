@@ -35,6 +35,7 @@ namespace EJ08
             this.Text = "AdministradorUsuarios: Sesion " + cantidadHijos.ToString();
             this.Shown += AdministradorUsuariosSesion_Shown;
             this.FormClosing += AdministradorUsuariosSesion_FormClosing1;
+           
         }
 
         private void AdministradorUsuariosSesion_FormClosing1(object sender, FormClosingEventArgs e)
@@ -47,10 +48,8 @@ namespace EJ08
                     break;
                 case DialogResult.Yes:
                     btnGuardarCambios.PerformClick();
-                    ((AdministradorUsuarios)this.ParentForm).cantidadHijos--;
                     break;
                 case DialogResult.No:
-                    ((AdministradorUsuarios)this.ParentForm).cantidadHijos--;
                     break;
             }
         }
@@ -62,8 +61,8 @@ namespace EJ08
             foreach (DataGridViewRow row in dgrUsuarios.Rows)
             {
                 row.Tag = EstadoFila.SinCambios;
-                //iEstado.Add(row, EstadoFila.SinCambios);
             }
+            lbxComparers.DataSource = this.Fachada.ObtenerNombresComparadores().ToBindingList();
         }
 
         private void DgrUsuarios_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
