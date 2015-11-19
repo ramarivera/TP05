@@ -81,7 +81,7 @@ namespace EJ08.UserRepository
         public IList<Usuario> ObtenerOrdenadosPor(string pNombreComparador)
         {
             IComparer<Usuario> lComparador = (IComparer<Usuario>)Activator.
-                CreateInstance(Type.GetType(COMPARERS_NAMESPACE + pNombreComparador));
+                CreateInstance(Type.GetType(COMPARERS_NAMESPACE + "."+ pNombreComparador));
 
             return this.iRepositorio.ObtenerOrdenadosPor(lComparador);
         }

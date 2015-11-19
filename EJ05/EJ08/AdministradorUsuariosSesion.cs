@@ -32,11 +32,16 @@ namespace EJ08
             this.FormClosing += AdministradorUsuariosSesion_FormClosing1;
 
             this.Fachada = pFachada;
+
         }
 
+        private bool CambiosSinGuardar
+        {
+            get { return (iListaEliminados.Count != 0 || iListaAgregados.Count != 0 || iListaActualizados.Count != 0); }
+        }
         private void AdministradorUsuariosSesion_FormClosing1(object sender, FormClosingEventArgs e)
         {
-            if (iListaEliminados.Count != 0 || iListaAgregados.Count!=0 || iListaActualizados.Count != 0)
+            if (this.CambiosSinGuardar)
             {
                 DialogResult resultado = MessageBox.Show("¿Desea guardar los cambios?", "Salir", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
                 switch (resultado)
@@ -51,12 +56,16 @@ namespace EJ08
                         break;
                 }
             }
-           
+
         }
 
-        private void Actualizar()
+     
+        private void Actualizar(IList<Usuario> pListaUsuarios)
         {
-            iBinding = this.Fachada.ObtenerTodos().ToBindingList();
+            dgrUsuarios.RowLeave -= dgrUsuarios_RowLeave;
+            dgrUsuarios.RowsAdded -= dgrUsuarios_RowsAdded;
+
+            iBinding = pListaUsuarios.ToBindingList();
             iListaActualizados = new List<Usuario>();
             iListaAgregados = new List<Usuario>();
             iListaEliminados = new List<String>();
@@ -68,143 +77,178 @@ namespace EJ08
                 row.Tag = EstadoFila.SinCambios;
             }
 
-            lbxComparers.DataSource = this.Fachada.ObtenerNombresComparadores().ToBindingList();
+            this.ConfigurarColumnasDataGrid();
+            dgrUsuarios.RowLeave += dgrUsuarios_RowLeave;
+            dgrUsuarios.RowsAdded += dgrUsuarios_RowsAdded;
+            this.dgrUsuarios.Focus();
+        }
+
+        private void ConfigurarColumnasDataGrid()
+        {
+            dgrUsuarios.Columns[0].ReadOnly = true;
         }
 
         private void AdministradorUsuariosSesion_Shown(object sender, EventArgs e)
         {
-          
-            this.Actualizar();
-            dgrUsuarios.RowLeave += dgrUsuarios_RowLeave;
-            dgrUsuarios.RowsAdded += dgrUsuarios_RowsAdded;
+            lbxComparers.DataSource = this.Fachada.ObtenerNombresComparadores().ToBindingList();
+            this.Actualizar(this.Fachada.ObtenerTodos());
+            this.lbxComparers.Enter += lbxComparers_Enter;
+            this.lbxComparers.SelectedValueChanged += lbxComparers_SelectedValueChanged;
         }
 
+        
 
         private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
-            this.GuardarUsuariosAgregados();
-            this.GuardarUsuariosActualizados();
-            this.GuardarUsuariosEliminados();
+            if (iListaAgregados.Count != 0)
+            {
+                this.GuardarUsuariosAgregados();
+            }
+            if (iListaActualizados.Count != 0)
+            {
+                this.GuardarUsuariosActualizados();
+            }
+            if (iListaEliminados.Count != 0)
+            {
+                this.GuardarUsuariosEliminados();
+            }
+
         }
 
 
         private void GuardarUsuariosEliminados()
         {
-            for (int i = iListaEliminados.Count - 1; i >= 0; i--)
+            if (iListaEliminados.Count != 0)
             {
-                var codigo = iListaEliminados[i];
-                try
+                for (int i = iListaEliminados.Count - 1; i >= 0; i--)
                 {
-                    this.Fachada.Eliminar(codigo);
-                    iListaEliminados.RemoveAt(i);
-                }
-                catch (UsuarioNoEncontradoException)
-                {
-                    string lMensaje = String.Format("Se produjo un error al intentar eliminar el usuario con codigo: {0} (No existe un usuario con ese codigo)", codigo);
-                    DialogResult lDialogo = MessageBox.Show(
-                                                lMensaje + "\nDesea descartarlo y continuar con la operacion de guardado?" +
-                                                "(Nota: si selecciona no, la operacion de guardado se interrumpira)",
-                                                "Error al eliminar usuario",
-                                                MessageBoxButtons.YesNo,
-                                                MessageBoxIcon.Error);
-
-                    if (lDialogo == DialogResult.Yes)
+                    var codigo = iListaEliminados[i];
+                    try
                     {
+                        this.Fachada.Eliminar(codigo);
                         iListaEliminados.RemoveAt(i);
-                        this.btnGuardarCambios.PerformClick();
                     }
-                    else
+                    catch (UsuarioNoEncontradoException)
                     {
-                        break;
+                        string lMensaje = String.Format("Se produjo un error al intentar eliminar el usuario con codigo: {0} (No existe un usuario con ese codigo)", codigo);
+                        DialogResult lDialogo = MessageBox.Show(
+                                                    lMensaje + "\nDesea descartarlo y continuar con la operacion de guardado?" +
+                                                    "(Nota: si selecciona no, la operacion de guardado se interrumpira)",
+                                                    "Error al eliminar usuario",
+                                                    MessageBoxButtons.YesNo,
+                                                    MessageBoxIcon.Error);
+
+                        if (lDialogo == DialogResult.Yes)
+                        {
+                            iListaEliminados.RemoveAt(i);
+                            this.btnGuardarCambios.PerformClick();
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
                 }
+
             }
         }
 
         private void GuardarUsuariosAgregados()
         {
-            for (int i = iListaAgregados.Count - 1; i >= 0; i--)
+            if (iListaAgregados.Count != 0)
             {
-                var user = iListaAgregados[i];
-                try
+                for (int i = iListaAgregados.Count - 1; i >= 0; i--)
                 {
-                    this.Fachada.Agregar(user);
-                    iListaAgregados.RemoveAt(i);
-                }
-                catch (UsuarioExistenteException)
-                {
-                    string lMensaje = String.Format("Se produjo un error al intentar agregar el usuario con codigo: {0} (Ya existe un usuario con ese codigo)", user.Codigo);
-                    DialogResult lDialogo = MessageBox.Show(
-                                                lMensaje + "\nDesea descartarlo y continuar con la operacion de guardado?" +
-                                                "(Nota: si selecciona no, la operacion de guardado se interrumpira)",
-                                                "Error al agregar usuario",
-                                                MessageBoxButtons.YesNo,
-                                                MessageBoxIcon.Error);
-
-                    if (lDialogo == DialogResult.Yes)
+                    var user = iListaAgregados[i];
+                    try
                     {
+                        this.Fachada.Agregar(user);
                         iListaAgregados.RemoveAt(i);
-                        this.btnGuardarCambios.PerformClick();
                     }
-                    else
+                    catch (UsuarioExistenteException)
                     {
-                        break;
+                        string lMensaje = String.Format("Se produjo un error al intentar agregar el usuario con codigo: {0} (Ya existe un usuario con ese codigo)", user.Codigo);
+                        DialogResult lDialogo = MessageBox.Show(
+                                                    lMensaje + "\nDesea descartarlo y continuar con la operacion de guardado?" +
+                                                    "(Nota: si selecciona no, la operacion de guardado se interrumpira)",
+                                                    "Error al agregar usuario",
+                                                    MessageBoxButtons.YesNoCancel,
+                                                    MessageBoxIcon.Error);
+                        if (lDialogo == DialogResult.Cancel)
+                        {
+                            Debugger.Break();
+                        }
+                        if (lDialogo == DialogResult.Yes)
+                        {
+                            iListaAgregados.RemoveAt(i);
+                            this.btnGuardarCambios.PerformClick();
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
                 }
             }
+
         }
 
         private void GuardarUsuariosActualizados()
         {
-            for (int i = iListaActualizados.Count - 1; i >= 0; i--)
+            if (iListaActualizados.Count != 0)
             {
-                var user = iListaActualizados[i];
-                try
+                for (int i = iListaActualizados.Count - 1; i >= 0; i--)
                 {
-                    this.Fachada.Actualizar(user);
-                    iListaActualizados.RemoveAt(i);
-                }
-                catch (UsuarioExistenteException)
-                {
-                    string lMensaje = String.Format("Se produjo un error al intentar actualizar el usuario con codigo: {0} (No existe un usuario con ese codigo)", user.Codigo);
-                    DialogResult lDiaologo = MessageBox.Show(
-                                                lMensaje + "\nDesea descartarlo y continuar con la operacion de guardado?" +
-                                                "(Nota: si selecciona no, la operacion de guardado se interrumpira)",
-                                                "Error al actualizar usuario",
-                                                MessageBoxButtons.YesNo,
-                                                MessageBoxIcon.Error);
-
-                    if (lDiaologo == DialogResult.Yes)
+                    var user = iListaActualizados[i];
+                    try
                     {
+                        this.Fachada.Actualizar(user);
                         iListaActualizados.RemoveAt(i);
-                        this.btnGuardarCambios.PerformClick();
                     }
-                    else
+                    catch (UsuarioExistenteException)
                     {
-                        break;
+                        string lMensaje = String.Format("Se produjo un error al intentar actualizar el usuario con codigo: {0} (No existe un usuario con ese codigo)", user.Codigo);
+                        DialogResult lDiaologo = MessageBox.Show(
+                                                    lMensaje + "\nDesea descartarlo y continuar con la operacion de guardado?" +
+                                                    "(Nota: si selecciona no, la operacion de guardado se interrumpira)",
+                                                    "Error al actualizar usuario",
+                                                    MessageBoxButtons.YesNo,
+                                                    MessageBoxIcon.Error);
+
+                        if (lDiaologo == DialogResult.Yes)
+                        {
+                            iListaActualizados.RemoveAt(i);
+                            this.btnGuardarCambios.PerformClick();
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
                 }
             }
+
         }
 
         private void dgrUsuarios_RowLeave(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow lRow = dgrUsuarios.Rows[e.RowIndex];
-
-            switch ((EstadoFila)lRow.Tag)
+            if (lRow.DataBoundItem != null)
             {
-                case EstadoFila.Agregada:
-                    iListaAgregados.Add((Usuario)lRow.DataBoundItem);
-                    break;
-                case EstadoFila.Modificada:
-                    iListaActualizados.Add((Usuario)lRow.DataBoundItem);
-                    break;
-                case EstadoFila.SinCambios:
-                    break;
-                case EstadoFila.Eliminada:
-                    break;
+                switch ((EstadoFila)lRow.Tag)
+                {
+                    case EstadoFila.Agregada:
+                        iListaAgregados.Add((Usuario)lRow.DataBoundItem);
+                        break;
+                    case EstadoFila.Modificada:
+                        iListaActualizados.Add((Usuario)lRow.DataBoundItem);
+                        break;
+                    case EstadoFila.SinCambios:
+                        break;
+                    case EstadoFila.Eliminada:
+                        break;
+                }
             }
-
         }
 
 
@@ -229,8 +273,21 @@ namespace EJ08
             }
         }
 
+        private string GetNuevoCodigo()
+        {
+            Random lRan = new Random();
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < 10; i++)
+            {
+                sb.Append(Convert.ToChar(lRan.Next(65, 90)));
+            }
+            return sb.ToString();
+        }
+
+
         private void dgrUsuarios_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
+            ((Usuario) dgrUsuarios.Rows[e.RowIndex - 1].DataBoundItem ).Codigo = this.GetNuevoCodigo();
             dgrUsuarios.Rows[e.RowIndex - 1].Tag = EstadoFila.Agregada;
         }
 
@@ -244,7 +301,7 @@ namespace EJ08
 
         private void EsconderFila(DataGridViewRow pFila)
         {
-            CurrencyManager lCurrMan = (CurrencyManager) BindingContext[dgrUsuarios.DataSource];
+            CurrencyManager lCurrMan = (CurrencyManager)BindingContext[dgrUsuarios.DataSource];
             lCurrMan.SuspendBinding();
             pFila.Visible = false;
             lCurrMan.ResumeBinding();
@@ -252,12 +309,46 @@ namespace EJ08
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgrUsuarios.SelectedRows)
+            if (dgrUsuarios.SelectedRows.Count == 0)
             {
-                string lCodigo = ((Usuario)row.DataBoundItem).Codigo;
-                iListaEliminados.Add(lCodigo);
-                this.EsconderFila(row);
+                MessageBox.Show("No se selecciono ningun usuario");
             }
+            else
+            {
+                StringBuilder lSb = new StringBuilder();
+
+                foreach (DataGridViewRow row in dgrUsuarios.SelectedRows)
+                {
+                    Usuario lUser = ((Usuario)row.DataBoundItem);
+                    lSb.Append("* "+ lUser.Codigo + "\t" + lUser.NombreCompleto +"\n");
+                }
+
+                DialogResult lDialogo = MessageBox.Show(
+                    String.Format("Se eliminaran los siguientes usuarios: \n{0}\nDesea Continuar?",lSb.ToString()),
+                    "Confirmar Eliminacion",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+
+                if (lDialogo == DialogResult.Yes)
+                {
+                    foreach (DataGridViewRow row in dgrUsuarios.SelectedRows)
+                    {
+                        Usuario lUser = ((Usuario)row.DataBoundItem);
+                        iListaEliminados.Add(lUser.Codigo);
+                        this.EsconderFila(row);
+                        if (iListaAgregados.Contains(lUser))
+                        {
+                            iListaAgregados.Remove(lUser);
+                        }
+                        if (iListaActualizados.Contains(lUser))
+                        {
+                            iListaActualizados.Remove(lUser);
+                        }
+                    }
+                }
+            }
+            
         }
 
         private void tblEliminar_Paint(object sender, PaintEventArgs e)
@@ -274,8 +365,58 @@ namespace EJ08
                                                     MessageBoxIcon.Warning);
             if (lDialogo == DialogResult.Yes)
             {
-                this.Actualizar();
+                this.Actualizar(this.Fachada.ObtenerTodos());
             }
+        }
+
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnBuscar.PerformClick();
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(txtBuscar.Text))
+            {
+                MessageBox.Show("Por favor, ingrese un termino de busqueda valido", "Busqueda Invalida", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                MessageBox.Show("Por favor,Hola", "Busqueda Invalida", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                this.Actualizar(this.Fachada.BusquedaPorAproximacion(txtBuscar.Text));
+                               
+            }
+        }
+
+        private void lbxComparers_Enter(object sender, EventArgs e)
+        {
+            DialogResult lDialogo = MessageBox.Show(
+                                            "Si reordena los usuarios, perdera sus cambios sin guardar. Desea continuar?",
+                                            "Advertencia",
+                                            MessageBoxButtons.YesNo,
+                                            MessageBoxIcon.Warning);
+            if (lDialogo == DialogResult.No)
+            {
+                this.dgrUsuarios.Focus();
+            }
+        }
+
+        private void lbxComparers_SelectedValueChanged(object sender, EventArgs e)
+        {
+            string lSeleccionado = (string)this.lbxComparers.SelectedValue;
+
+            IList<Usuario> lListaOrdenada = this.Fachada.ObtenerOrdenadosPor(lSeleccionado);
+
+            this.Actualizar(lListaOrdenada);
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+            this.dgrUsuarios.Focus();
         }
     }
 }
