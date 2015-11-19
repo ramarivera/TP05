@@ -11,12 +11,16 @@ using System.Windows.Forms;
 
 namespace EJ08
 {
-    public partial class VentanaPrincipal : Form
+    public partial class AdministradorUsuarios : Form
     {
 
         private Facade iFachada;
+        public Facade Fachada
+        {
+            get { return this.iFachada; }
+        }
 
-        public VentanaPrincipal()
+        public AdministradorUsuarios()
         {
             InitializeComponent();
             this.iFachada = new Facade();
@@ -27,6 +31,7 @@ namespace EJ08
             AdministradorUsuariosSesion newMDIChild = new AdministradorUsuariosSesion(this.iFachada.ObtenerTodos());
             // Set the Parent Form of the Child window.
             newMDIChild.MdiParent = this;
+            newMDIChild.Fachada = this.Fachada;
             // Display the new form.
             newMDIChild.Show();
         }

@@ -1,4 +1,6 @@
-﻿namespace EJ08
+﻿using EJ08.UserRepository;
+
+namespace EJ08
 {
     partial class AdministradorUsuariosSesion
     {
@@ -64,7 +66,8 @@
             this.dgrUsuarios.Name = "dgrUsuarios";
             this.dgrUsuarios.Size = new System.Drawing.Size(342, 150);
             this.dgrUsuarios.TabIndex = 6;
-            this.dgrUsuarios.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrUsuarios_RowValidated);
+            this.dgrUsuarios.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgrUsuarios_CellBeginEdit);
+            this.dgrUsuarios.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgrUsuarios_RowValidating);
             this.dgrUsuarios.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgrUsuarios_UserAddedRow);
             // 
             // tblPrincipal
@@ -98,7 +101,6 @@
             this.tblInferior.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 156F));
             this.tblInferior.Size = new System.Drawing.Size(456, 156);
             this.tblInferior.TabIndex = 0;
-            this.tblInferior.Paint += new System.Windows.Forms.PaintEventHandler(this.tblInferior_Paint);
             // 
             // tblSuperior
             // 
@@ -204,7 +206,6 @@
             this.Controls.Add(this.tblPrincipal);
             this.Name = "AdministradorUsuariosSesion";
             this.Text = "AdministradorUsuariosSesion";
-            this.Load += new System.EventHandler(this.AdministradorUsuariosSesion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgrUsuarios)).EndInit();
             this.tblPrincipal.ResumeLayout(false);
             this.tblInferior.ResumeLayout(false);
@@ -228,5 +229,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnGuardarCambios;
+
+        
     }
 }

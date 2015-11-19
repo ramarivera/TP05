@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EJ08.UserRepository
 {
-    class Facade
+    public class Facade
     {
 
         private IRepositorioUsuarios iRepositorio;
