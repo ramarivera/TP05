@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace EJ08
         public AdministradorUsuariosSesion()
         {
             InitializeComponent();
-            this.dgrUsuarios.DataSource = new BindingList<Usuario>(this.ParentForm.);
+           // this.dgrUsuarios.DataSource = new BindingList<Usuario>(this.ParentForm.);
         }
 
         private void AdministradorUsuariosSesion_Load(object sender, EventArgs e)
@@ -40,6 +41,13 @@ namespace EJ08
 
         private void tblInferior_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+
+        private void dgrUsuarios_UserAddedRow(object sender, DataGridViewRowEventArgs e)
+        {
+            Debugger.Break();
 
         }
     }
