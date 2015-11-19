@@ -24,7 +24,7 @@ namespace EJ08
 
         internal Facade Fachada { get; set; }
 
-        public AdministradorUsuariosSesion(IList<Usuario> pListaUsuarios, int cantidadHijos)
+        public AdministradorUsuariosSesion(IList<Usuario> pListaUsuarios)
         {
             InitializeComponent();
             iBinding = new BindingList<Usuario>(pListaUsuarios);
@@ -32,7 +32,6 @@ namespace EJ08
             iListaAgregados = new List<Usuario>();
             iListaEliminados = new List<String>();
             dgrUsuarios.DataSource = iBinding;
-            this.Text = "AdministradorUsuarios: Sesion " + cantidadHijos.ToString();
             this.Shown += AdministradorUsuariosSesion_Shown;
             this.FormClosing += AdministradorUsuariosSesion_FormClosing1;
         }
