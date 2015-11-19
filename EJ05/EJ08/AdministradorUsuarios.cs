@@ -40,6 +40,7 @@ namespace EJ08
             // Set the Parent Form of the Child window.
             newMDIChild.MdiParent = this;
             newMDIChild.Fachada = this.Fachada;
+
             // Display the new form.
             newMDIChild.Show();
         }

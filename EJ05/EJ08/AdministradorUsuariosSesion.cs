@@ -34,6 +34,25 @@ namespace EJ08
             dgrUsuarios.DataSource = iBinding;
             this.Text = "AdministradorUsuarios: Sesion " + cantidadHijos.ToString();
             this.Shown += AdministradorUsuariosSesion_Shown;
+            this.FormClosing += AdministradorUsuariosSesion_FormClosing1;
+        }
+
+        private void AdministradorUsuariosSesion_FormClosing1(object sender, FormClosingEventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("¿Desea guardar los cambios?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            switch (resultado)
+            {
+                case DialogResult.Cancel:
+                    e.Cancel = true;
+                    break;
+                case DialogResult.Yes:
+                    btnGuardarCambios.PerformClick();
+                    ((AdministradorUsuarios)this.Parent).cantidadHijos--;
+                    break;
+                case DialogResult.No:
+                    ((AdministradorUsuarios)this.Parent).cantidadHijos--;
+                    break;
+            }
         }
 
         private void AdministradorUsuariosSesion_Shown(object sender, EventArgs e)
@@ -54,7 +73,7 @@ namespace EJ08
 
         private void dgrUsuarios_UserAddedRow(object sender, DataGridViewRowEventArgs e)
         {
-            
+
             //this.iEstado.Add(e.Row, EstadoFila.Agregada);
         }
 
@@ -69,20 +88,6 @@ namespace EJ08
 
         }
 
-        private void AdministradorUsuariosSesion_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
-        {
-            DialogResult resultado = MessageBox.Show("¿Desea guardar los cambios?","Salir",MessageBoxButtons.YesNo,MessageBoxIcon.Exclamation);
-            if (resultado == DialogResult.Yes)
-            {
-
-            }
-            else
-            {
-
-            }
-            AdministradorUsuarios adm = (AdministradorUsuarios)this.Parent;
-            adm.cantidadHijos--;
-        }
 
         private void GuardarUsuariosEliminados()
         {
@@ -211,7 +216,7 @@ namespace EJ08
 
         private void dgrUsuarios_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            dgrUsuarios.Rows[e.RowIndex-1].Tag = EstadoFila.Agregada;
+            dgrUsuarios.Rows[e.RowIndex - 1].Tag = EstadoFila.Agregada;
 
 
         }
