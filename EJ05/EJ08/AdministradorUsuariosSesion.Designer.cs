@@ -66,7 +66,7 @@ namespace EJ08
             this.dgrUsuarios.Name = "dgrUsuarios";
             this.dgrUsuarios.Size = new System.Drawing.Size(342, 150);
             this.dgrUsuarios.TabIndex = 6;
-            this.dgrUsuarios.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgrUsuarios_CellBeginEdit);
+            this.dgrUsuarios.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrUsuarios_CellEndEdit);
             this.dgrUsuarios.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgrUsuarios_RowValidating);
             this.dgrUsuarios.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgrUsuarios_UserAddedRow);
             // 
@@ -185,7 +185,6 @@ namespace EJ08
             this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
             // 
             // btnGuardarCambios
             // 
