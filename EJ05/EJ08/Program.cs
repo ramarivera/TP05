@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EJ08.UserRepository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,9 +15,13 @@ namespace EJ08
         [STAThread]
         static void Main()
         {
+            /* Facade fachada = new Facade();
+
+             fachada.ObtenerNombresComparadores();
+             Console.ReadLine();*/
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new VentanaPrincipal());
+            Application.Run(new AdministradorUsuarios());
         }
     }
 }

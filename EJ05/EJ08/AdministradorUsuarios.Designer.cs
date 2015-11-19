@@ -1,6 +1,6 @@
 ﻿namespace EJ08
 {
-    partial class VentanaPrincipal
+    partial class AdministradorUsuarios
     {
         /// <summary>
         /// Required designer variable.

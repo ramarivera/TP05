@@ -1,4 +1,6 @@
-﻿namespace EJ08
+﻿using EJ08.UserRepository;
+
+namespace EJ08
 {
     partial class AdministradorUsuariosSesion
     {
@@ -30,9 +32,6 @@
         {
             this.lbxComparers = new System.Windows.Forms.ListBox();
             this.dgrUsuarios = new System.Windows.Forms.DataGridView();
-            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.tblInferior = new System.Windows.Forms.TableLayoutPanel();
             this.tblSuperior = new System.Windows.Forms.TableLayoutPanel();
@@ -62,31 +61,14 @@
             // dgrUsuarios
             // 
             this.dgrUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colCodigo,
-            this.colNombre,
-            this.colEmail});
             this.dgrUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrUsuarios.Location = new System.Drawing.Point(3, 3);
             this.dgrUsuarios.Name = "dgrUsuarios";
             this.dgrUsuarios.Size = new System.Drawing.Size(342, 150);
             this.dgrUsuarios.TabIndex = 6;
+            this.dgrUsuarios.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgrUsuarios_CellBeginEdit);
+            this.dgrUsuarios.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgrUsuarios_RowValidating);
             this.dgrUsuarios.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgrUsuarios_UserAddedRow);
-            // 
-            // colCodigo
-            // 
-            this.colCodigo.HeaderText = "Código";
-            this.colCodigo.Name = "colCodigo";
-            // 
-            // colNombre
-            // 
-            this.colNombre.HeaderText = "Nombre";
-            this.colNombre.Name = "colNombre";
-            // 
-            // colEmail
-            // 
-            this.colEmail.HeaderText = "Email";
-            this.colEmail.Name = "colEmail";
             // 
             // tblPrincipal
             // 
@@ -119,7 +101,6 @@
             this.tblInferior.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 156F));
             this.tblInferior.Size = new System.Drawing.Size(456, 156);
             this.tblInferior.TabIndex = 0;
-            this.tblInferior.Paint += new System.Windows.Forms.PaintEventHandler(this.tblInferior_Paint);
             // 
             // tblSuperior
             // 
@@ -204,6 +185,7 @@
             this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
             // 
             // btnGuardarCambios
             // 
@@ -214,6 +196,7 @@
             this.btnGuardarCambios.TabIndex = 9;
             this.btnGuardarCambios.Text = "Guardar Cambios";
             this.btnGuardarCambios.UseVisualStyleBackColor = true;
+            this.btnGuardarCambios.Click += new System.EventHandler(this.btnGuardarCambios_Click);
             // 
             // AdministradorUsuariosSesion
             // 
@@ -223,7 +206,6 @@
             this.Controls.Add(this.tblPrincipal);
             this.Name = "AdministradorUsuariosSesion";
             this.Text = "AdministradorUsuariosSesion";
-            this.Load += new System.EventHandler(this.AdministradorUsuariosSesion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgrUsuarios)).EndInit();
             this.tblPrincipal.ResumeLayout(false);
             this.tblInferior.ResumeLayout(false);
@@ -242,13 +224,12 @@
         private System.Windows.Forms.TableLayoutPanel tblInferior;
         private System.Windows.Forms.TableLayoutPanel tblSuperior;
         private System.Windows.Forms.TableLayoutPanel tblEliminar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnGuardarCambios;
+
+        
     }
 }
