@@ -24,7 +24,7 @@ namespace EJ08
 
         internal Facade Fachada { get; set; }
 
-        public AdministradorUsuariosSesion(IList<Usuario> pListaUsuarios)
+        public AdministradorUsuariosSesion(IList<Usuario> pListaUsuarios, int cantidadHijos)
         {
             InitializeComponent();
             iBinding = new BindingList<Usuario>(pListaUsuarios);
@@ -32,6 +32,7 @@ namespace EJ08
             iListaAgregados = new List<Usuario>();
             iListaEliminados = new List<String>();
             dgrUsuarios.DataSource = iBinding;
+            this.Text = "AdministradorUsuarios: Sesion " + cantidadHijos.ToString();
             this.Shown += AdministradorUsuariosSesion_Shown;
         }
 
@@ -66,6 +67,21 @@ namespace EJ08
             this.GuardarUsuariosEliminados();
 
 
+        }
+
+        private void AdministradorUsuariosSesion_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("¿Desea guardar los cambios?","Salir",MessageBoxButtons.YesNo,MessageBoxIcon.Exclamation);
+            if (resultado == DialogResult.Yes)
+            {
+
+            }
+            else
+            {
+
+            }
+            AdministradorUsuarios adm = (AdministradorUsuarios)this.Parent;
+            adm.cantidadHijos--;
         }
 
         private void GuardarUsuariosEliminados()
@@ -207,5 +223,6 @@ namespace EJ08
                 dgrUsuarios.Rows[e.RowIndex].Tag = EstadoFila.Modificada;
             }
         }
+
     }
 }

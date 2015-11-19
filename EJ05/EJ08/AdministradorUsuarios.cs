@@ -13,6 +13,13 @@ namespace EJ08
 {
     public partial class AdministradorUsuarios : Form
     {
+        private int iCantidadHijos;
+
+        internal int cantidadHijos
+        {
+            get { return this.iCantidadHijos; }
+            set { this.iCantidadHijos = value; }
+        }
 
         private Facade iFachada;
         public Facade Fachada
@@ -28,7 +35,8 @@ namespace EJ08
 
         private void nuevaSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AdministradorUsuariosSesion newMDIChild = new AdministradorUsuariosSesion(this.iFachada.ObtenerTodos());
+            cantidadHijos++;
+            AdministradorUsuariosSesion newMDIChild = new AdministradorUsuariosSesion(this.iFachada.ObtenerTodos(),cantidadHijos);
             // Set the Parent Form of the Child window.
             newMDIChild.MdiParent = this;
             newMDIChild.Fachada = this.Fachada;
@@ -57,5 +65,34 @@ namespace EJ08
             this.Close();
         }
 
+        private void mostrarEnCascadaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.mostrarEnCascadaToolStripMenuItem.Checked)
+            {
+                this.mostrarEnCascadaToolStripMenuItem.Checked = false;
+                this.LayoutMdi(System.Windows.Forms.MdiLayout.TileHorizontal);
+            }
+            else
+            {
+                this.mostrarEnCascadaToolStripMenuItem.Checked = true;
+                this.mostrarHorizontalToolStripMenuItem.Checked = false;
+                this.LayoutMdi(System.Windows.Forms.MdiLayout.Cascade);
+            }
+        }
+
+        private void mostrarEnCuadriculaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.mostrarHorizontalToolStripMenuItem.Checked)
+            {
+                this.mostrarHorizontalToolStripMenuItem.Checked = false;
+                this.LayoutMdi(System.Windows.Forms.MdiLayout.Cascade);
+            }
+            else
+            {
+                this.mostrarHorizontalToolStripMenuItem.Checked = true;
+                this.mostrarEnCascadaToolStripMenuItem.Checked = false;
+                this.LayoutMdi(System.Windows.Forms.MdiLayout.TileHorizontal);
+            }
+        }
     }
 }
