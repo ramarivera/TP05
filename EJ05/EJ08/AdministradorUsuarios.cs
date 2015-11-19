@@ -36,12 +36,10 @@ namespace EJ08
         private void nuevaSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cantidadHijos++;
-            AdministradorUsuariosSesion newMDIChild = new AdministradorUsuariosSesion(this.iFachada.ObtenerTodos());
+            AdministradorUsuariosSesion newMDIChild = new AdministradorUsuariosSesion(this.Fachada);
             // Set the Parent Form of the Child window.
             newMDIChild.MdiParent = this;
-            newMDIChild.Fachada = this.Fachada;
             newMDIChild.Text = "AdministradorUsuarios: Sesion " + cantidadHijos;
-
             // Display the new form.
             newMDIChild.Show();
         }
