@@ -20,7 +20,7 @@ namespace EJ08
         IList<Usuario> iListaOriginal;
         IList<Usuario> iListaAgregados;
         IList<Usuario> iListaActualizados;
-        Dictionary<DataGridViewRow,EstadoFila> i
+        Dictionary<DataGridViewRow, EstadoFila> iEstado;
 
         internal Facade Fachada { get; set; }
 
@@ -28,6 +28,7 @@ namespace EJ08
         {
             InitializeComponent();
             iBinding = new BindingList<Usuario>(pListaUsuarios);
+            iEstado = new Dictionary<DataGridViewRow, EstadoFila>();
             iListaOriginal = pListaUsuarios;
             iListaActualizados = new List<Usuario>();
             iListaAgregados = new List<Usuario>();
@@ -35,7 +36,7 @@ namespace EJ08
             //this.dgrUsuarios.DataSource = new BindingList<Usuario>(this.ParentForm);
             foreach (DataGridViewRow row in dgrUsuarios.Rows)
             {
-                row.Tag = (object) EstadoFila.SinCambios;
+                iEstado.Add(row, EstadoFila.SinCambios);
             }
             this.Shown += AdministradorUsuariosSesion_Shown;
         }
@@ -54,7 +55,7 @@ namespace EJ08
 
         private void dgrUsuarios_UserAddedRow(object sender, DataGridViewRowEventArgs e)
         {
-           e.Row.Tag = "Agregada";
+            this.iEstado.Add(e.Row, EstadoFila.Agregada);
         }
 
 
@@ -76,14 +77,14 @@ namespace EJ08
                     {
                         this.Fachada.Agregar(user);
                     }
-                    
+
                 }
                 catch (UsuarioNoEncontradoException)
                 {
                     this.Fachada.Agregar(user);
                 }
             }
-            
+
         }
 
         private void GuardarUsuariosAgregados()
@@ -119,7 +120,7 @@ namespace EJ08
 
         private void GuardarUsuariosActualizados()
         {
-            for (int i = iListaActualizados.Count-1 ; i >= 0; i--)
+            for (int i = iListaActualizados.Count - 1; i >= 0; i--)
             {
                 var user = iListaActualizados[i];
                 try
@@ -153,58 +154,58 @@ namespace EJ08
             Debugger.Break();
             DataGridViewRow lRow = dgrUsuarios.Rows[e.RowIndex];
 
-            
+
 
             CurrencyManager lCurrMan = (CurrencyManager)BindingContext[dgrUsuarios.DataSource];
             lCurrMan.SuspendBinding();
             lRow.Visible = false;
-           // dgrUsuarios.Rows[5].Visible = false;
+            // dgrUsuarios.Rows[5].Visible = false;
             lCurrMan.ResumeBinding();
 
-            switch ((EstadoFila)lRow.Tag)
+            switch (this.iEstado[lRow])
             {
                 case EstadoFila.SinCambios:
                     break;
                 case EstadoFila.Agregada:
-                    this.iListaAgregados.Add((Usuario) lRow.DataBoundItem);
+                   // this.iListaAgregados.Add((Usuario)lRow.DataBoundItem);
                     break;
                 case EstadoFila.Modificada:
-                    this.iListaAgregados.Add((Usuario)lRow.DataBoundItem);
+                  //  this.iListaAgregados.Add((Usuario)lRow.DataBoundItem);
                     break;
                 case EstadoFila.Eliminada:
                     break;
             }
-              /*  else if (iListaOriginal.Contains(lSeleccionado))
-                {
-                    if (iListaActualizados.Contains(lSeleccionado))
-                    {
-                        //iListaActualizados[iListaActualizados.IndexOf(lSeleccionado)] = lSeleccionado;
-                    }
-                    else
-                    {
-                        iListaActualizados.Add(lSeleccionado);
-                    }
-                }
-                else
-                {
-                    if (iListaAgregados.Contains(lSeleccionado))
-                    {
-                        //iListaAgregados[iListaAgregados.IndexOf(lSeleccionado)] = lSeleccionado;
-                    }
-                    else
-                    {
-                        iListaAgregados.Add(lSeleccionado);
-                    }
-                }
-               // Debugger.Break();*/
-            
+            /*  else if (iListaOriginal.Contains(lSeleccionado))
+              {
+                  if (iListaActualizados.Contains(lSeleccionado))
+                  {
+                      //iListaActualizados[iListaActualizados.IndexOf(lSeleccionado)] = lSeleccionado;
+                  }
+                  else
+                  {
+                      iListaActualizados.Add(lSeleccionado);
+                  }
+              }
+              else
+              {
+                  if (iListaAgregados.Contains(lSeleccionado))
+                  {
+                      //iListaAgregados[iListaAgregados.IndexOf(lSeleccionado)] = lSeleccionado;
+                  }
+                  else
+                  {
+                      iListaAgregados.Add(lSeleccionado);
+                  }
+              }
+             // Debugger.Break();*/
+
         }
 
         private void dgrUsuarios_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
-            if (dgrUsuarios.Rows[e.RowIndex].Tag.Equals(EstadoFila.SinCambios))
+            if (iEstado[dgrUsuarios.Rows[e.RowIndex]] == EstadoFila.SinCambios)
             {
-                dgrUsuarios.Rows[e.RowIndex].Tag = EstadoFila.Modificada;
+                this.iEstado[dgrUsuarios.Rows[e.RowIndex]] = EstadoFila.Modificada;
             }
         }
 
