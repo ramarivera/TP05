@@ -24,72 +24,101 @@ namespace EJ08
 
         internal Facade Fachada { get; set; }
 
-        public AdministradorUsuariosSesion(IList<Usuario> pListaUsuarios)
+        public AdministradorUsuariosSesion(Facade pFachada)
         {
             InitializeComponent();
-            iBinding = new BindingList<Usuario>(pListaUsuarios);
-            iListaActualizados = new List<Usuario>();
-            iListaAgregados = new List<Usuario>();
-            iListaEliminados = new List<String>();
-            dgrUsuarios.DataSource = iBinding;
+
             this.Shown += AdministradorUsuariosSesion_Shown;
             this.FormClosing += AdministradorUsuariosSesion_FormClosing1;
-           
+
+            this.Fachada = pFachada;
         }
 
         private void AdministradorUsuariosSesion_FormClosing1(object sender, FormClosingEventArgs e)
         {
-            DialogResult resultado = MessageBox.Show("¿Desea guardar los cambios?", "Salir", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
-            switch (resultado)
+            if (iListaEliminados.Count != 0 || iListaAgregados.Count!=0 || iListaActualizados.Count != 0)
             {
-                case DialogResult.Cancel:
-                    e.Cancel = true;
-                    break;
-                case DialogResult.Yes:
-                    btnGuardarCambios.PerformClick();
-                    break;
-                case DialogResult.No:
-                    break;
+                DialogResult resultado = MessageBox.Show("¿Desea guardar los cambios?", "Salir", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
+                switch (resultado)
+                {
+                    case DialogResult.Cancel:
+                        e.Cancel = true;
+                        break;
+                    case DialogResult.Yes:
+                        btnGuardarCambios.PerformClick();
+                        break;
+                    case DialogResult.No:
+                        break;
+                }
             }
+           
         }
 
-        private void AdministradorUsuariosSesion_Shown(object sender, EventArgs e)
+        private void Actualizar()
         {
-            dgrUsuarios.RowLeave += dgrUsuarios_RowLeave;
-            dgrUsuarios.RowsAdded += dgrUsuarios_RowsAdded;
+            iBinding = this.Fachada.ObtenerTodos().ToBindingList();
+            iListaActualizados = new List<Usuario>();
+            iListaAgregados = new List<Usuario>();
+            iListaEliminados = new List<String>();
+
+            dgrUsuarios.DataSource = iBinding;
+
             foreach (DataGridViewRow row in dgrUsuarios.Rows)
             {
                 row.Tag = EstadoFila.SinCambios;
             }
+
             lbxComparers.DataSource = this.Fachada.ObtenerNombresComparadores().ToBindingList();
         }
 
-        private void DgrUsuarios_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        private void AdministradorUsuariosSesion_Shown(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
-        }
-
-        private void dgrUsuarios_UserAddedRow(object sender, DataGridViewRowEventArgs e)
-        {
-
-            //this.iEstado.Add(e.Row, EstadoFila.Agregada);
+          
+            this.Actualizar();
+            dgrUsuarios.RowLeave += dgrUsuarios_RowLeave;
+            dgrUsuarios.RowsAdded += dgrUsuarios_RowsAdded;
         }
 
 
         private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
-            //iBinding.Add( new Usuario { Codigo = "9999", NombreCompleto = "Usuario 9", CorreoElectronico = "99.profugo@hotmail.com" });
             this.GuardarUsuariosAgregados();
             this.GuardarUsuariosActualizados();
             this.GuardarUsuariosEliminados();
-
-
         }
 
 
         private void GuardarUsuariosEliminados()
         {
-            //throw new NotImplementedException();
+            for (int i = iListaEliminados.Count - 1; i >= 0; i--)
+            {
+                var codigo = iListaEliminados[i];
+                try
+                {
+                    this.Fachada.Eliminar(codigo);
+                    iListaEliminados.RemoveAt(i);
+                }
+                catch (UsuarioNoEncontradoException)
+                {
+                    string lMensaje = String.Format("Se produjo un error al intentar eliminar el usuario con codigo: {0} (No existe un usuario con ese codigo)", codigo);
+                    DialogResult lDialogo = MessageBox.Show(
+                                                lMensaje + "\nDesea descartarlo y continuar con la operacion de guardado?" +
+                                                "(Nota: si selecciona no, la operacion de guardado se interrumpira)",
+                                                "Error al eliminar usuario",
+                                                MessageBoxButtons.YesNo,
+                                                MessageBoxIcon.Error);
+
+                    if (lDialogo == DialogResult.Yes)
+                    {
+                        iListaEliminados.RemoveAt(i);
+                        this.btnGuardarCambios.PerformClick();
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
         }
 
         private void GuardarUsuariosAgregados()
@@ -158,21 +187,9 @@ namespace EJ08
             }
         }
 
-        private void EsconderFila(DataGridViewRow pFila)
-        {
-            CurrencyManager lCurrMan = (CurrencyManager)BindingContext[dgrUsuarios.DataSource];
-            lCurrMan.SuspendBinding();
-            pFila.Visible = false;
-            pFila.Tag = EstadoFila.Eliminada;
-            lCurrMan.ResumeBinding();
-        }
-
         private void dgrUsuarios_RowLeave(object sender, DataGridViewCellEventArgs e)
         {
-            // Debugger.Break();
-
             DataGridViewRow lRow = dgrUsuarios.Rows[e.RowIndex];
-
 
             switch ((EstadoFila)lRow.Tag)
             {
@@ -215,8 +232,6 @@ namespace EJ08
         private void dgrUsuarios_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             dgrUsuarios.Rows[e.RowIndex - 1].Tag = EstadoFila.Agregada;
-
-
         }
 
         private void dgrUsuarios_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -227,5 +242,40 @@ namespace EJ08
             }
         }
 
+        private void EsconderFila(DataGridViewRow pFila)
+        {
+            CurrencyManager lCurrMan = (CurrencyManager) BindingContext[dgrUsuarios.DataSource];
+            lCurrMan.SuspendBinding();
+            pFila.Visible = false;
+            lCurrMan.ResumeBinding();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dgrUsuarios.SelectedRows)
+            {
+                string lCodigo = ((Usuario)row.DataBoundItem).Codigo;
+                iListaEliminados.Add(lCodigo);
+                this.EsconderFila(row);
+            }
+        }
+
+        private void tblEliminar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            DialogResult lDialogo = MessageBox.Show(
+                                                    "Si actualiza los datos perdera todos los cambios realizados, desea continuar?",
+                                                    "Advertencia",
+                                                    MessageBoxButtons.YesNo,
+                                                    MessageBoxIcon.Warning);
+            if (lDialogo == DialogResult.Yes)
+            {
+                this.Actualizar();
+            }
+        }
     }
 }
