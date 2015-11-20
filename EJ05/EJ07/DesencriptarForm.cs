@@ -41,6 +41,7 @@ namespace EJ07
         /// <param name="pFachada">La fachada a la cual se conectara el encriptador.</param>
         public DesencriptarForm(Facade pFachada)
         {
+            InitializeComponent();
             this.iFachada = pFachada;
         }
 
