@@ -13,17 +13,37 @@ using System.Windows.Forms;
 
 namespace EJ08
 {
+    /// <summary>
+    /// Representa lógica la ventana AdministradorUsuariosSesion de la aplicación
+    /// </summary>
     public partial class AdministradorUsuariosSesion : Form
     {
-
+        /// <summary>
+        /// Representa la lista utilizada como DataSource del dataGridView <see cref="dgrUsuarios"/>
+        /// </summary>
         BindingList<Usuario> iBinding;
+
+        /// <summary>
+        /// Almacena los usuarios a agregarse en el <see cref="RepositorioUsuarios"/> luego de guardar los cambios
+        /// </summary>
         IList<Usuario> iListaAgregados;
+
+        /// <summary>
+        /// Almacena los usuarios a actualizarse en el <see cref="RepositorioUsuarios"/> luego de guardar los cambios
+        /// </summary>
         IList<Usuario> iListaActualizados;
+
+        /// <summary>
+        /// Almacena los usuarios a eliminarse en el <see cref="RepositorioUsuarios"/> luego de guardar los cambios
+        /// </summary>
         IList<String> iListaEliminados;
-        //Dictionary<DataGridViewRow, EstadoFila> iEstado;
 
         internal Facade Fachada { get; set; }
 
+        /// <summary>
+        /// Inicializa una nueva instancia de la class <see cref="AdministradorUsu <see cref="AdministradorUsuarios"/> .
+        /// </summary>
+        /// <param name="pFachada">Instancia de <see cref="Facade"/> de la ventana</param>
         public AdministradorUsuariosSesion(Facade pFachada)
         {
             InitializeComponent();
@@ -37,10 +57,19 @@ namespace EJ08
 
         }
 
+        /// <summary>
+        /// Verifica si hay cambios sin guardar en las listas correspondientes
+        /// </summary>
         private bool CambiosSinGuardar
         {
             get { return (iListaEliminados.Count != 0 || iListaAgregados.Count != 0 || iListaActualizados.Count != 0); }
         }
+
+        /// <summary>
+        /// Representa lo que ocurre al cerrar una ventana <see cref="AdministradorUsuariosSesion"/>
+        /// </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e">La instancia de  <see cref="EventArgs"/> que contiene informacion del evento.</param>
         private void AdministradorUsuariosSesion_FormClosing1(object sender, FormClosingEventArgs e)
         {
             if (this.CambiosSinGuardar)
