@@ -180,7 +180,6 @@ namespace EJ08
             this.tblEliminar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
             this.tblEliminar.Size = new System.Drawing.Size(154, 103);
             this.tblEliminar.TabIndex = 9;
-            this.tblEliminar.Paint += new System.Windows.Forms.PaintEventHandler(this.tblEliminar_Paint);
             // 
             // btnEliminar
             // 
