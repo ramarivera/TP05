@@ -386,10 +386,10 @@ namespace EJ08
         }
 
         /// <summary>
-        /// Handles the Click event of the btnEliminar control.
+        /// Maneja el evento Click del control btnEliminar.
         /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">La fuente del evento</param>
+        /// <param name="e">La instancia de <see cref="EventArgs"/> que contiene informacion del evento</param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dgrUsuarios.SelectedRows.Count == 0)
@@ -435,10 +435,10 @@ namespace EJ08
         }
 
         /// <summary>
-        /// Handles the Click event of the btnActualizar control.
+        /// Maneja el evento Click del control btnActualizar.
         /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">La fuente del evento</param>
+        /// <param name="e">La instancia de <see cref="EventArgs"/> que contiene informacion del evento</param>
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             DialogResult lDialogo = MessageBox.Show(
@@ -453,10 +453,10 @@ namespace EJ08
         }
 
         /// <summary>
-        /// Handles the KeyDown event of the txtBuscar control.
+        /// Maneja el evento KeyDown del control txtBuscar
         /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="KeyEventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">La fuente del evento</param>
+        /// <param name="e">La instancia de <see cref="KeyEventArgs"/> que contiene informacion del evento</param>
         private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -466,10 +466,10 @@ namespace EJ08
         }
 
         /// <summary>
-        /// Handles the Click event of the btnBuscar control.
+        /// Maneja el evento Click del control btnBuscar
         /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">La fuente del evento</param>
+        /// <param name="e">La instancia de <see cref="EventArgs"/> que contiene informacion del evento</param>
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(txtBuscar.Text))
@@ -486,10 +486,10 @@ namespace EJ08
         }
 
         /// <summary>
-        /// Handles the Enter event of the lbxComparers control.
+        /// Maneja el evento Enter del control lbxComparers.
         /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">La fuente del evento</param>
+        /// <param name="e">La instancia de <see cref="EventArgs"/> que contiene informacion del evento</param>
         private void lbxComparers_Enter(object sender, EventArgs e)
         {
             DialogResult lDialogo = MessageBox.Show(
@@ -501,13 +501,14 @@ namespace EJ08
             {
                 this.dgrUsuarios.Focus();
             }
+
         }
 
         /// <summary>
-        /// Handles the SelectedValueChanged event of the lbxComparers control.
+        /// Maneja el evento SelectedValueChanged del control lbxComparers.
         /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">La fuente del evento</param>
+        /// <param name="e">La instancia de <see cref="EventArgs"/> que contiene informacion del evento</param>
         private void lbxComparers_SelectedValueChanged(object sender, EventArgs e)
         {
             string lSeleccionado = (string)this.lbxComparers.SelectedValue;
@@ -517,14 +518,5 @@ namespace EJ08
             this.Actualizar(lListaOrdenada);
         }
 
-        /// <summary>
-        /// Handles the Paint event of the tableLayoutPanel1 control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-            this.dgrUsuarios.Focus();
-        }
     }
 }
