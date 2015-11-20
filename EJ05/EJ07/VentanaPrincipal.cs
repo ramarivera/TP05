@@ -12,35 +12,49 @@ using System.Diagnostics;
 
 namespace EJ07
 {
+    /// <summary>
+    /// Ventana principal del EJ07
+    /// </summary>
     public partial class VentanaPrincipal : Form
     {
+        /// <summary>
+        /// Lista usada para guardar el nombre de los encriptadores
+        /// </summary>
         private BindingList<String> iListaEncriptadores;
 
+        /// <summary>
+        /// Lista que contiene el nombre de las operaciones (Encriptar y Desencriptar)
+        /// </summary>
         private BindingList<String> iListaOperaciones;
 
+        /// <summary>
+        /// Fachada del TP03.EJ05
+        /// </summary>
         private Facade iFachada;
 
         private EncriptarForm iFormEncriptar;
 
         private DesencriptarForm iFormDesencriptar;
 
+        /// <summary>
+        /// Inicializa una nueva instancia de la class <see cref="VentanaPrincipal"/> .
+        /// </summary>
         public VentanaPrincipal()
         {
             InitializeComponent();
             this.iFachada = new Facade();
-            InicializarListaEncriptadores();
-            InicializarListaOperaciones();
-            /* InicializarFormEncriptador();
-             InicializarFormDesencriptador();*/
-
-            this.cmbOperacion.SelectedValueChanged += new System.EventHandler(this.cmbOperacion_SelectedValueChanged);
-            this.cmbEncriptador.SelectedValueChanged += new System.EventHandler(this.cmbEncriptador_SelectedValueChanged);
-            this.mnuStrip.Visible = false;
-            MostrarEncriptador();
-
+            this.InicializarListaEncriptadores();
+            this.InicializarListaOperaciones();
+            this.InicializarFormEncriptador();
+            this.InicializarFormDesencriptador();
+            cmbOperacion.SelectedValueChanged += cmbOperacion_SelectedValueChanged;
+            cmbEncriptador.SelectedValueChanged += cmbEncriptador_SelectedValueChanged;
+            this.MostrarEncriptador();
         }
 
-
+        /// <summary>
+        /// Inicializa la FormEncriptar
+        /// </summary>
         private void InicializarFormEncriptador()
         {
             this.iFormEncriptar = new EncriptarForm(this.iFachada);
@@ -49,14 +63,20 @@ namespace EJ07
             iFormEncriptar.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
 
+        /// <summary>
+        /// Inicializa la FormDesencriptar
+        /// </summary>
         private void InicializarFormDesencriptador()
         {
             this.iFormDesencriptar = new DesencriptarForm(this.iFachada);
             iFormDesencriptar.TopLevel = false;
-            iFormDesencriptar.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             iFormDesencriptar.Dock = DockStyle.Fill;
+            iFormDesencriptar.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
 
+        /// <summary>
+        /// Inicializa la lista con nombres de los encriptadores disponibles.
+        /// </summary>
         private void InicializarListaEncriptadores()
         {
             this.iListaEncriptadores = new BindingList<String>(this.iFachada.ObtenerNombresEncriptadores());
@@ -64,6 +84,10 @@ namespace EJ07
             this.cmbEncriptador.SelectedItem = "Cesar";
         }
 
+
+        /// <summary>
+        /// Inicializa la lista con nombres de las operaciones disponibles.
+        /// </summary>
         private void InicializarListaOperaciones()
         {
             this.iListaOperaciones = new BindingList<String>(new List<String>() { "Encriptar", "Desencriptar" });
@@ -71,6 +95,9 @@ namespace EJ07
             this.cmbOperacion.SelectedItem = "Encriptar";
         }
 
+        /// <summary>
+        /// Muestra la FormEncriptar en el panel principal
+        /// </summary>
         private void MostrarEncriptador()
         {
             if (this.tblPrincipal.Controls.Count > 1)
@@ -78,17 +105,14 @@ namespace EJ07
                 this.tblPrincipal.Controls.RemoveAt(1); // Las sub Forms siempre estan en el index 1
             }
 
-             this.iFormEncriptar.NombreEncriptador = (string)this.cmbEncriptador.SelectedValue;
-             this.tblPrincipal.Controls.Add(this.iFormEncriptar, 0, 1);
-             this.iFormEncriptar.Show();
-
-            /*ISubFormEJ07 lDes = FabricaSubForms.Instancia.GetSubForm("FormEncriptar");
-
-            lDes.NombreEncriptador = (string)this.cmbEncriptador.SelectedValue;
-            this.tblPrincipal.Controls.Add((Form)lDes, 0, 1);
-            ((Form)lDes).Show();*/
+            this.iFormEncriptar.NombreEncriptador = (string)this.cmbEncriptador.SelectedValue;
+            this.tblPrincipal.Controls.Add(this.iFormEncriptar, 0, 1);
+            this.iFormEncriptar.Show();
         }
 
+        /// <summary>
+        /// Muestra la FormDesencriptar en el panel principal
+        /// </summary>
         private void MostrarDesencriptador()
         {
             if (this.tblPrincipal.Controls.Count > 1)
@@ -96,19 +120,16 @@ namespace EJ07
                 this.tblPrincipal.Controls.RemoveAt(1); // Las sub Forms siempre estan en el index 1
             }
 
-
             this.iFormDesencriptar.NombreEncriptador = (string)this.cmbEncriptador.SelectedValue;
             this.tblPrincipal.Controls.Add(this.iFormDesencriptar, 0, 1);
             this.iFormDesencriptar.Show();
-
-            /*
-            ISubFormEJ07 lDes = FabricaSubForms.Instancia.GetSubForm("FormDesencriptar");
-
-            lDes.NombreEncriptador = (string)this.cmbEncriptador.SelectedValue;
-            this.tblPrincipal.Controls.Add((Form)lDes, 0, 1);
-            ((Form)lDes).Show();*/
         }
 
+        /// <summary>
+        /// Maneja el evento SelectedValueChanged del control cmbOperacion.
+        /// </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e">La instancia de  <see cref="EventArgs"/> que contiene informacion del evento.</param>
         private void cmbOperacion_SelectedValueChanged(object sender, EventArgs e)
         {
             switch ((String)this.cmbOperacion.SelectedValue)
@@ -124,6 +145,11 @@ namespace EJ07
             }
         }
 
+        /// <summary>
+        /// Maneja el evento SelectedValueChanged del control cmbEncriptador.
+        /// </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e">La instancia de  <see cref="EventArgs"/> que contiene informacion del evento.</param>
         private void cmbEncriptador_SelectedValueChanged(object sender, EventArgs e)
         {
             switch ((String)this.cmbOperacion.SelectedValue)
@@ -131,7 +157,7 @@ namespace EJ07
                 case "Encriptar":
                     this.iFormEncriptar.NombreEncriptador = ((string)this.cmbEncriptador.SelectedValue);
                     break;
-                case "Desencriptar": 
+                case "Desencriptar":
                     this.iFormDesencriptar.NombreEncriptador = ((string)this.cmbEncriptador.SelectedValue);
                     break;
                 default:
@@ -139,41 +165,6 @@ namespace EJ07
             }
         }
 
-        private DialogResult MostrarAvisoConfiguracion()
-        {
-            return MessageBox.Show("Si modifica la configuracion de los encriptadores, es posible que no pueda recuperar la informacion ya encriptada. ¿Desea proceder?",
-                                    "Advertencia",
-                                    MessageBoxButtons.YesNo,
-                                    MessageBoxIcon.Information);
-        }
 
-        private void mnuConfigrarEncriptadorCesar_Click(object sender, EventArgs e)
-        {
-            if (this.MostrarAvisoConfiguracion() == DialogResult.Yes)
-            {
-
-            }
-        }
-
-        private void mnuConfigrarEncriptadorAES_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mnuConfigrarEncriptadorEnigma_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mnuConfigrarEncriptadorNulo_Click(object sender, EventArgs e)
-        {
-            if (this.MostrarAvisoConfiguracion() == DialogResult.Yes)
-            {
-                MessageBox.Show("El encriptador Nulo no posee configuracion ya que se incluyo para mayor compatiblidad.",
-                                    "Encriptador Nulo",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Warning);
-            }
-        }
     }
 }

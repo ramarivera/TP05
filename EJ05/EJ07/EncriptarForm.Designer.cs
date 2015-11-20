@@ -119,7 +119,6 @@ namespace EJ07
             this.Controls.Add(this.tblPrincipal);
             this.Name = "EncriptarForm";
             this.Text = "EncriptarForm";
-            this.Load += new System.EventHandler(this.EncriptarForm_Load);
             this.tblPrincipal.ResumeLayout(false);
             this.grpTextoLLano.ResumeLayout(false);
             this.grpTextoLLano.PerformLayout();

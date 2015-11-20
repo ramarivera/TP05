@@ -28,71 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.mnuStrip = new System.Windows.Forms.MenuStrip();
-            this.mnuConfigurar = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuConfigrarEncriptadorCesar = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuConfigrarEncriptadorAES = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuConfigrarEncriptadorEnigma = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuConfigrarEncriptadorNulo = new System.Windows.Forms.ToolStripMenuItem();
             this.tblPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.tblSuperior = new System.Windows.Forms.TableLayoutPanel();
             this.lblOperacion = new System.Windows.Forms.Label();
             this.lblEncriptador = new System.Windows.Forms.Label();
             this.cmbOperacion = new System.Windows.Forms.ComboBox();
             this.cmbEncriptador = new System.Windows.Forms.ComboBox();
-            this.mnuStrip.SuspendLayout();
             this.tblPrincipal.SuspendLayout();
             this.tblSuperior.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // mnuStrip
-            // 
-            this.mnuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuConfigurar});
-            this.mnuStrip.Location = new System.Drawing.Point(0, 0);
-            this.mnuStrip.Name = "mnuStrip";
-            this.mnuStrip.Size = new System.Drawing.Size(370, 24);
-            this.mnuStrip.TabIndex = 6;
-            this.mnuStrip.Text = "menuStrip1";
-            // 
-            // mnuConfigurar
-            // 
-            this.mnuConfigurar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuConfigrarEncriptadorCesar,
-            this.mnuConfigrarEncriptadorAES,
-            this.mnuConfigrarEncriptadorEnigma,
-            this.mnuConfigrarEncriptadorNulo});
-            this.mnuConfigurar.Name = "mnuConfigurar";
-            this.mnuConfigurar.Size = new System.Drawing.Size(95, 20);
-            this.mnuConfigurar.Text = "Configuracion";
-            // 
-            // mnuConfigrarEncriptadorCesar
-            // 
-            this.mnuConfigrarEncriptadorCesar.Name = "mnuConfigrarEncriptadorCesar";
-            this.mnuConfigrarEncriptadorCesar.Size = new System.Drawing.Size(178, 22);
-            this.mnuConfigrarEncriptadorCesar.Text = "Encriptador Cesar";
-            this.mnuConfigrarEncriptadorCesar.Click += new System.EventHandler(this.mnuConfigrarEncriptadorCesar_Click);
-            // 
-            // mnuConfigrarEncriptadorAES
-            // 
-            this.mnuConfigrarEncriptadorAES.Name = "mnuConfigrarEncriptadorAES";
-            this.mnuConfigrarEncriptadorAES.Size = new System.Drawing.Size(178, 22);
-            this.mnuConfigrarEncriptadorAES.Text = "Encriptador AES";
-            this.mnuConfigrarEncriptadorAES.Click += new System.EventHandler(this.mnuConfigrarEncriptadorAES_Click);
-            // 
-            // mnuConfigrarEncriptadorEnigma
-            // 
-            this.mnuConfigrarEncriptadorEnigma.Name = "mnuConfigrarEncriptadorEnigma";
-            this.mnuConfigrarEncriptadorEnigma.Size = new System.Drawing.Size(178, 22);
-            this.mnuConfigrarEncriptadorEnigma.Text = "Encriptador Enigma";
-            this.mnuConfigrarEncriptadorEnigma.Click += new System.EventHandler(this.mnuConfigrarEncriptadorEnigma_Click);
-            // 
-            // mnuConfigrarEncriptadorNulo
-            // 
-            this.mnuConfigrarEncriptadorNulo.Name = "mnuConfigrarEncriptadorNulo";
-            this.mnuConfigrarEncriptadorNulo.Size = new System.Drawing.Size(178, 22);
-            this.mnuConfigrarEncriptadorNulo.Text = "Encriptador Nulo";
-            this.mnuConfigrarEncriptadorNulo.Click += new System.EventHandler(this.mnuConfigrarEncriptadorNulo_Click);
             // 
             // tblPrincipal
             // 
@@ -174,12 +118,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(370, 358);
             this.Controls.Add(this.tblPrincipal);
-            this.Controls.Add(this.mnuStrip);
-            this.MainMenuStrip = this.mnuStrip;
             this.Name = "VentanaPrincipal";
             this.Text = "Encriptar / Desencriptar (TP03.EJ05)";
-            this.mnuStrip.ResumeLayout(false);
-            this.mnuStrip.PerformLayout();
             this.tblPrincipal.ResumeLayout(false);
             this.tblSuperior.ResumeLayout(false);
             this.tblSuperior.PerformLayout();
@@ -190,12 +130,6 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip mnuStrip;
-        private System.Windows.Forms.ToolStripMenuItem mnuConfigurar;
-        private System.Windows.Forms.ToolStripMenuItem mnuConfigrarEncriptadorCesar;
-        private System.Windows.Forms.ToolStripMenuItem mnuConfigrarEncriptadorAES;
-        private System.Windows.Forms.ToolStripMenuItem mnuConfigrarEncriptadorEnigma;
-        private System.Windows.Forms.ToolStripMenuItem mnuConfigrarEncriptadorNulo;
         private System.Windows.Forms.TableLayoutPanel tblPrincipal;
         private System.Windows.Forms.Label lblEncriptador;
         private System.Windows.Forms.ComboBox cmbEncriptador;
