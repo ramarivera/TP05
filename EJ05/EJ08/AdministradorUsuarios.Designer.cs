@@ -92,6 +92,7 @@
             this.nuevaSesionConNombreToolStripMenuItem.Name = "nuevaSesionConNombreToolStripMenuItem";
             this.nuevaSesionConNombreToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.nuevaSesionConNombreToolStripMenuItem.Text = "Nueva Sesion con Nombre ";
+            this.nuevaSesionConNombreToolStripMenuItem.Click += new System.EventHandler(this.nuevaSesionConNombreToolStripMenuItem_Click);
             // 
             // sesionesAbiertasToolStripMenuItem
             // 

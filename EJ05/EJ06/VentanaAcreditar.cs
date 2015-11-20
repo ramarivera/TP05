@@ -10,12 +10,20 @@ using System.Windows.Forms;
 
 namespace EJ06
 {
+    /// <summary>
+    /// Representa la lógica de la ventanaAcreditar de la aplicación
+    /// </summary>
     public partial class VentanaAcreditar : Form
     {
         string moneda;
 
         Facade fachada;
 
+        /// <summary>
+        /// Constructor de la clase
+        /// </summary>
+        /// <param name="monedaActual"></param>
+        /// <param name="cFachada"></param>
         public VentanaAcreditar(string monedaActual, Facade cFachada)
         {
             InitializeComponent();
@@ -23,6 +31,11 @@ namespace EJ06
             this.fachada = cFachada;
         }
 
+        /// <summary>
+        /// Representa lo que ocurre al presionar el botón especificado. Acredita el saldo de ser posible
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             try

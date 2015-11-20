@@ -61,7 +61,7 @@ namespace EJ08
 
         private void cerrarTodoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Que tenga un buen día");
+            MessageBox.Show("Que tenga un buen día","Adiós",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
             this.Close();
         }
 
@@ -93,6 +93,18 @@ namespace EJ08
                 this.mostrarEnCascadaToolStripMenuItem.Checked = false;
                 this.LayoutMdi(System.Windows.Forms.MdiLayout.TileHorizontal);
             }
+        }
+
+        private void nuevaSesionConNombreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VentanaNombreAdministrador ventanaNombre = new VentanaNombreAdministrador();
+            ventanaNombre.ShowDialog();
+
+            cantidadHijos++;
+            AdministradorUsuariosSesion newHijoMDI = new AdministradorUsuariosSesion(this.Fachada);
+            newHijoMDI.MdiParent = this;
+            newHijoMDI.Text = ventanaNombre.Nombre;
+            newHijoMDI.Show();
         }
     }
 }
