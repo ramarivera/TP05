@@ -44,7 +44,12 @@ namespace EJ05
         private void button1_Click(object sender, EventArgs e)
         {
             double p1coorX, p1coorY, p2coorX, p2coorY, p3coorX, p3coorY;
-            if (!(double.TryParse(this.txtP1CoordX.Text, out p1coorX)) || !(double.TryParse(this.txtP1CoordY.Text, out p1coorY)) || !(double.TryParse(this.txtP2CoordX.Text, out p2coorX)) || !(double.TryParse(this.txtP2CoordY.Text, out p2coorY)) || !(double.TryParse(this.txtP3CoordX.Text, out p3coorX)) || !(double.TryParse(this.txtP3CoordY.Text, out p3coorY)))
+            if (!(double.TryParse(this.txtP1CoordX.Text, out p1coorX)) ||
+                !(double.TryParse(this.txtP1CoordY.Text, out p1coorY)) ||
+                !(double.TryParse(this.txtP2CoordX.Text, out p2coorX)) ||
+                !(double.TryParse(this.txtP2CoordY.Text, out p2coorY)) ||
+                !(double.TryParse(this.txtP3CoordX.Text, out p3coorX)) ||
+                !(double.TryParse(this.txtP3CoordY.Text, out p3coorY)))
             {
                 MessageBox.Show("Faltan datos o los ingresados no son números", "Verifique los datos");
             }

@@ -146,24 +146,22 @@ namespace EJ08
             this.lbxComparers.SelectedValueChanged += lbxComparers_SelectedValueChanged;
         }
 
+
+        /// <summary>
+        /// Maneja el evento Click del control btnGuardarCambios.
+        /// </summary>
+        /// <param name="sender">La fuente del Evento</param>
+        /// <param name="e">La instancia de  <see cref="EventArgs"/> que contiene informacion sobre el evento.</param>
         private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
-            if (iListaAgregados.Count != 0)
-            {
                 this.GuardarUsuariosAgregados();
-            }
-            if (iListaActualizados.Count != 0)
-            {
                 this.GuardarUsuariosActualizados();
-            }
-            if (iListaEliminados.Count != 0)
-            {
                 this.GuardarUsuariosEliminados();
             }
 
-        }
-
-
+        /// <summary>
+        /// Sincroniza la informacion de usuarios eliminados con la fachada
+        /// </summary>
         private void GuardarUsuariosEliminados()
         {
             if (iListaEliminados.Count != 0)
@@ -201,6 +199,9 @@ namespace EJ08
             }
         }
 
+        /// <summary>
+        /// Sincroniza la informacion de usuarios agregados con la fachada
+        /// </summary>
         private void GuardarUsuariosAgregados()
         {
             if (iListaAgregados.Count != 0)
@@ -241,6 +242,9 @@ namespace EJ08
 
         }
 
+        /// <summary>
+        /// Sincroniza la informacion de usuarios actualizados con la fachada
+        /// </summary>
         private void GuardarUsuariosActualizados()
         {
             if (iListaActualizados.Count != 0)
@@ -278,6 +282,11 @@ namespace EJ08
 
         }
 
+        /// <summary>
+        /// Handles the RowLeave event of the dgrUsuarios control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
         private void dgrUsuarios_RowLeave(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow lRow = dgrUsuarios.Rows[e.RowIndex];
@@ -299,7 +308,11 @@ namespace EJ08
             }
         }
 
-
+        /// <summary>
+        /// Maneja el evento RowValidating del control dgrUsuarios.
+        /// </summary>
+        /// <param name="sender">La fuente del Evento</param>
+        /// <param name="e">La instancia de  <see cref="DataGridViewCellCancelEventArgs"/> que contiene informacion sobre el evento.</param>
         private void dgrUsuarios_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
         {
             Usuario lSeleccionado = this.dgrUsuarios.Rows[e.RowIndex].DataBoundItem as Usuario;
@@ -321,6 +334,10 @@ namespace EJ08
             }
         }
 
+        /// <summary>
+        /// Genera un nuevo codigo aleatorio para los usuarios
+        /// </summary>
+        /// <returns>Nuevo codigo alfabetico</returns>
         private string GetNuevoCodigo()
         {
             Random lRan = new Random();
@@ -332,13 +349,22 @@ namespace EJ08
             return sb.ToString();
         }
 
-
+        /// <summary>
+        /// Maneja el evento RowsAdded del control dgrUsuarios.
+        /// </summary>
+        /// <param name="sender">La fuente del Evento</param>
+        /// <param name="e">La instancia de  <see cref="DataGridViewRowsAddedEventArgs"/> que contiene informacion sobre el evento.</param>
         private void dgrUsuarios_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             ((Usuario) dgrUsuarios.Rows[e.RowIndex - 1].DataBoundItem ).Codigo = this.GetNuevoCodigo();
             dgrUsuarios.Rows[e.RowIndex - 1].Tag = EstadoFila.Agregada;
         }
 
+        /// <summary>
+        /// Maneja el evento CellEndEdit del control dgrUsuarios.
+        /// </summary>
+        /// <param name="sender">La fuente del Evento</param>
+        /// <param name="e">La instancia de  <see cref="DataGridViewCellEventArgs"/> que contiene informacion sobre el evento.</param>
         private void dgrUsuarios_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (dgrUsuarios.Rows[e.RowIndex].Tag.Equals(EstadoFila.SinCambios))
@@ -347,6 +373,10 @@ namespace EJ08
             }
         }
 
+        /// <summary>
+        /// Esconde una fila luego de presionar el boton Eliminar
+        /// </summary>
+        /// <param name="pFila">Fila a esconder</param>
         private void EsconderFila(DataGridViewRow pFila)
         {
             CurrencyManager lCurrMan = (CurrencyManager)BindingContext[dgrUsuarios.DataSource];
@@ -355,6 +385,11 @@ namespace EJ08
             lCurrMan.ResumeBinding();
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnEliminar control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dgrUsuarios.SelectedRows.Count == 0)
@@ -395,15 +430,15 @@ namespace EJ08
                         }
                     }
                 }
-            }
-            
         }
-
-        private void tblEliminar_Paint(object sender, PaintEventArgs e)
-        {
 
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnActualizar control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             DialogResult lDialogo = MessageBox.Show(
@@ -417,6 +452,11 @@ namespace EJ08
             }
         }
 
+        /// <summary>
+        /// Handles the KeyDown event of the txtBuscar control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="KeyEventArgs"/> instance containing the event data.</param>
         private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -425,6 +465,11 @@ namespace EJ08
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnBuscar control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(txtBuscar.Text))
@@ -440,6 +485,11 @@ namespace EJ08
             }
         }
 
+        /// <summary>
+        /// Handles the Enter event of the lbxComparers control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void lbxComparers_Enter(object sender, EventArgs e)
         {
             DialogResult lDialogo = MessageBox.Show(
@@ -453,6 +503,11 @@ namespace EJ08
             }
         }
 
+        /// <summary>
+        /// Handles the SelectedValueChanged event of the lbxComparers control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void lbxComparers_SelectedValueChanged(object sender, EventArgs e)
         {
             string lSeleccionado = (string)this.lbxComparers.SelectedValue;
@@ -462,6 +517,11 @@ namespace EJ08
             this.Actualizar(lListaOrdenada);
         }
 
+        /// <summary>
+        /// Handles the Paint event of the tableLayoutPanel1 control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="PaintEventArgs"/> instance containing the event data.</param>
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
             this.dgrUsuarios.Focus();
