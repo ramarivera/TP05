@@ -44,14 +44,14 @@ namespace EJ05
         private void button1_Click(object sender, EventArgs e)
         {
             double p1coorX, p1coorY, p2coorX, p2coorY, p3coorX, p3coorY;
-            if (!(double.TryParse(this.txtP1CoordX.Text, out p1coorX) || !(double.TryParse(this.txtP1CoordY.Text, out p1coorY) || !(double.TryParse(this.txtP2CoordX.Text, out p2coorX) || !(double.TryParse(this.txtP1CoordX.Text, out p1coorX) || (this.txtP3CoordX.Text == "") || (this.txtP3CoordY.Text == ""))
+            if (!(double.TryParse(this.txtP1CoordX.Text, out p1coorX)) || !(double.TryParse(this.txtP1CoordY.Text, out p1coorY)) || !(double.TryParse(this.txtP2CoordX.Text, out p2coorX)) || !(double.TryParse(this.txtP2CoordY.Text, out p2coorY)) || !(double.TryParse(this.txtP3CoordX.Text, out p3coorX)) || !(double.TryParse(this.txtP3CoordY.Text, out p3coorY)))
             {
-                MessageBox.Show("Faltan datos");
+                MessageBox.Show("Faltan datos o los ingresados no son números", "Verifique los datos");
             }
             else
             {
-                double[] coorX = new double[] { double.Parse(this.txtP1CoordX.Text), double.Parse(this.txtP2CoordX.Text), double.Parse(this.txtP3CoordX.Text) };
-                double[] coorY = new double[] { double.Parse(this.txtP1CoordY.Text), double.Parse(this.txtP2CoordY.Text), double.Parse(this.txtP3CoordY.Text) };
+                double[] coorX = new double[] { p1coorX,p2coorX,p3coorX};
+                double[] coorY = new double[] { p1coorY,p2coorY,p3coorY};
                 double per = this.cFachada.CalcularPerimetroTriangulo(coorX,coorY);
                 MessageBox.Show("El perímetro del triángulo es: " + per.ToString(), "Perímetro");
             }
@@ -65,14 +65,15 @@ namespace EJ05
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            if ((this.txtP1CoordX.Text == "") || (this.txtP1CoordY.Text == "") || (this.txtP2CoordX.Text == "") || (this.txtP2CoordY.Text == "") || (this.txtP3CoordX.Text == "") || (this.txtP3CoordY.Text == ""))
+            double p1coorX, p1coorY, p2coorX, p2coorY, p3coorX, p3coorY;
+            if (!(double.TryParse(this.txtP1CoordX.Text, out p1coorX)) || !(double.TryParse(this.txtP1CoordY.Text, out p1coorY)) || !(double.TryParse(this.txtP2CoordX.Text, out p2coorX)) || !(double.TryParse(this.txtP2CoordY.Text, out p2coorY)) || !(double.TryParse(this.txtP3CoordX.Text, out p3coorX)) || !(double.TryParse(this.txtP3CoordY.Text, out p3coorY)))
             {
-                MessageBox.Show("Faltan datos");
+                MessageBox.Show("Faltan datos o los ingresados no son números", "Verifique los datos");
             }
             else
             {
-                double[] coorX = new double[] { double.Parse(this.txtP1CoordX.Text), double.Parse(this.txtP2CoordX.Text), double.Parse(this.txtP3CoordX.Text) };
-                double[] coorY = new double[] { double.Parse(this.txtP1CoordY.Text), double.Parse(this.txtP2CoordY.Text), double.Parse(this.txtP3CoordY.Text) };
+                double[] coorX = new double[] { p1coorX, p2coorX, p3coorX };
+                double[] coorY = new double[] { p1coorY, p2coorY, p3coorY };
                 double area = this.cFachada.CalcularAreaTriangulo(coorX, coorY);
                 MessageBox.Show("El área del triángulo es: " + area.ToString(), "Área");
             }
