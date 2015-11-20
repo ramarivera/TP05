@@ -32,6 +32,8 @@ namespace EJ08
             this.FormClosing += AdministradorUsuariosSesion_FormClosing1;
 
             this.Fachada = pFachada;
+            this.iBinding = this.Fachada.ObtenerTodos().ToBindingList();
+            dgrUsuarios.DataSource = iBinding;
 
         }
 
@@ -65,12 +67,20 @@ namespace EJ08
             dgrUsuarios.RowLeave -= dgrUsuarios_RowLeave;
             dgrUsuarios.RowsAdded -= dgrUsuarios_RowsAdded;
 
-            iBinding = pListaUsuarios.ToBindingList();
+            //iBinding = pListaUsuarios.ToBindingList();
+
+            iBinding.Clear();
+
+            foreach (Usuario user in pListaUsuarios)
+            {
+                iBinding.Add(user);
+            }
+
             iListaActualizados = new List<Usuario>();
             iListaAgregados = new List<Usuario>();
             iListaEliminados = new List<String>();
 
-            dgrUsuarios.DataSource = iBinding;
+            //
 
             foreach (DataGridViewRow row in dgrUsuarios.Rows)
             {
