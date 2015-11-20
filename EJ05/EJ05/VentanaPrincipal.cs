@@ -10,13 +10,25 @@ using System.Windows.Forms;
 
 namespace EJ05
 {
+    /// <summary>
+    /// Representa la lógica de la ventana principal de la aplicación
+    /// </summary>
     public partial class VentanaPrincipal : Form
     {
+        /// <summary>
+        /// Constructor de la clase
+        /// </summary>
         public VentanaPrincipal()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Representa lo que ocurre al presionar el botón especificado. Muestra una nueva ventana
+        /// y oculta la actual
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             if (rbnCirculo.Checked)

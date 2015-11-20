@@ -1,5 +1,8 @@
 ﻿namespace EJ05
 {
+    /// <summary>
+    /// Representa el diseño la ventana principal de la aplicación
+    /// </summary>
     partial class VentanaCirculo
     {
         /// <summary>
@@ -25,13 +28,14 @@
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
+        /// Se encarga de inicializar los distintos componentes del formulario
         /// </summary>
         private void InitializeComponent()
         {
             this.lblInfo = new System.Windows.Forms.Label();
             this.lblCoorX = new System.Windows.Forms.Label();
             this.lblCoorY = new System.Windows.Forms.Label();
-            this.txtCoorX = new System.Windows.Forms.TextBox();
+            this.txtCoordX = new System.Windows.Forms.TextBox();
             this.txtCoordY = new System.Windows.Forms.TextBox();
             this.lblRadio = new System.Windows.Forms.Label();
             this.txtRadio = new System.Windows.Forms.TextBox();
@@ -67,12 +71,12 @@
             this.lblCoorY.TabIndex = 2;
             this.lblCoorY.Text = "Coordenada Y";
             // 
-            // txtCoorX
+            // txtCoordX
             // 
-            this.txtCoorX.Location = new System.Drawing.Point(124, 62);
-            this.txtCoorX.Name = "txtCoorX";
-            this.txtCoorX.Size = new System.Drawing.Size(37, 20);
-            this.txtCoorX.TabIndex = 3;
+            this.txtCoordX.Location = new System.Drawing.Point(124, 62);
+            this.txtCoordX.Name = "txtCoordX";
+            this.txtCoordX.Size = new System.Drawing.Size(37, 20);
+            this.txtCoordX.TabIndex = 3;
             // 
             // txtCoordY
             // 
@@ -138,7 +142,7 @@
             this.Controls.Add(this.txtRadio);
             this.Controls.Add(this.lblRadio);
             this.Controls.Add(this.txtCoordY);
-            this.Controls.Add(this.txtCoorX);
+            this.Controls.Add(this.txtCoordX);
             this.Controls.Add(this.lblCoorY);
             this.Controls.Add(this.lblCoorX);
             this.Controls.Add(this.lblInfo);
@@ -154,7 +158,7 @@
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.Label lblCoorX;
         private System.Windows.Forms.Label lblCoorY;
-        private System.Windows.Forms.TextBox txtCoorX;
+        private System.Windows.Forms.TextBox txtCoordX;
         private System.Windows.Forms.TextBox txtCoordY;
         private System.Windows.Forms.Label lblRadio;
         private System.Windows.Forms.TextBox txtRadio;

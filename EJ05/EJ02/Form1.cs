@@ -10,13 +10,24 @@ using System.Windows.Forms;
 
 namespace EJ02
 {
+    /// <summary>
+    /// Representa la lógica de la ventana principal de la aplicación
+    /// </summary>
     public partial class Form1 : Form
     {
+        /// <summary>
+        /// Constructor de la clase
+        /// </summary>
         public Form1()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Representa lo que ocurre al presionar el botón especificado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             string cadena1 = "";

@@ -1,5 +1,8 @@
 ﻿namespace EJ04
 {
+    /// <summary>
+    /// Representa el diseño la ventana principal de la aplicación
+    /// </summary>
     partial class Form1
     {
         /// <summary>
@@ -25,6 +28,7 @@
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
+        /// Se encarga de inicializar los distintos componentes del formulario
         /// </summary>
         private void InitializeComponent()
         {

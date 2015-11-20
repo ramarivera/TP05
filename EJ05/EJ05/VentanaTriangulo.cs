@@ -10,24 +10,41 @@ using System.Windows.Forms;
 
 namespace EJ05
 {
+    /// <summary>
+    /// Representa la lógica de la ventana principal de la aplicación
+    /// </summary>
     public partial class VentanaTriangulo : Form
     {
         Facade cFachada = new Facade();
+
+        /// <summary>
+        /// Constructor de la clase
+        /// </summary>
         public VentanaTriangulo()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Representa lo que ocurre al presionar el botón especificado. Cierra la ventana actual
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
-            /*Form1 menu = new Form1();
-            menu.Show();*/ //Ver el boton siguiente de la ventana anterior
         }
 
+        /// <summary>
+        /// Representa lo que ocurre al presionar el botón especificado. Muestra el perímetro del triángulo
+        /// con los datos ingresados
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            if ((this.txtP1CoordX.Text == "") || (this.txtP1CoordY.Text == "") || (this.txtP2CoordX.Text == "") || (this.txtP2CoordY.Text == "") || (this.txtP3CoordX.Text == "") || (this.txtP3CoordY.Text == ""))
+            double p1coorX, p1coorY, p2coorX, p2coorY, p3coorX, p3coorY;
+            if (!(double.TryParse(this.txtP1CoordX.Text, out p1coorX) || !(double.TryParse(this.txtP1CoordY.Text, out p1coorY) || !(double.TryParse(this.txtP2CoordX.Text, out p2coorX) || !(double.TryParse(this.txtP1CoordX.Text, out p1coorX) || (this.txtP3CoordX.Text == "") || (this.txtP3CoordY.Text == ""))
             {
                 MessageBox.Show("Faltan datos");
             }
@@ -40,6 +57,12 @@ namespace EJ05
             }
         }
 
+        /// <summary>
+        /// Representa lo que ocurre al presionar el botón especificado. Muestra el área del triángulo
+        /// con los datos ingresados
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             if ((this.txtP1CoordX.Text == "") || (this.txtP1CoordY.Text == "") || (this.txtP2CoordX.Text == "") || (this.txtP2CoordY.Text == "") || (this.txtP3CoordX.Text == "") || (this.txtP3CoordY.Text == ""))
