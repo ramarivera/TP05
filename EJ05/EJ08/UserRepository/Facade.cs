@@ -84,7 +84,7 @@ namespace EJ08.UserRepository
         /// <summary>
         /// Obtiene ordenadas las instancias de <see cref="Usuario"/> contenidas en el repositorio
         /// </summary>
-        /// <param name="pComparador">Implementador de <see cref="IComparer{Usuario}"/>, el cual define el criterio del ordenamiento</param>
+        /// <param name="pNombreComparador">Implementador de <see cref="IComparer{Usuario}"/>, el cual define el criterio del ordenamiento</param>
         /// <returns>Lista de todos los usuarios ordenados</returns>
         public IList<Usuario> ObtenerOrdenadosPor(string pNombreComparador)
         {
