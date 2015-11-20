@@ -72,7 +72,7 @@ namespace EJ07.Encriptadores
             byte[] lKey = lRfc.GetBytes(lAes.KeySize >> 3);                                                                     // Obtengo la Key
             byte[] lIV = lRfc.GetBytes(lAes.BlockSize >> 3);                                                                    // Obtengo el IV o Vector de Inicializacion 
 
-            ICryptoTransform transform = lAes.CreateEncryptor(lKey, lIV);                                                       // Inicializo un encriptador simetrico utilizando la Key y el IV
+            ICryptoTransform transform = lAes.CreateDecryptor(lKey, lIV);                                                       // Inicializo un encriptador simetrico utilizando la Key y el IV
 
             using (MemoryStream buffer = new MemoryStream(Convert.FromBase64String(pCadena)))                                   // Utilizamos el Using para definir un contexto especifico de existencia del Objeto
             {
@@ -87,3 +87,5 @@ namespace EJ07.Encriptadores
         }
     }
 }
+
+
