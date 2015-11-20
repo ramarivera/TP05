@@ -42,14 +42,14 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(30, 49);
+            this.txtNombre.Location = new System.Drawing.Point(30, 21);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(216, 20);
             this.txtNombre.TabIndex = 1;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(104, 93);
+            this.btnAceptar.Location = new System.Drawing.Point(101, 47);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 2;
@@ -61,10 +61,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(275, 140);
+            this.ClientSize = new System.Drawing.Size(278, 82);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.textBox1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(294, 121);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(294, 121);
             this.Name = "VentanaNombreAdministrador";
             this.Text = "Ingrese nombre";
             this.ResumeLayout(false);

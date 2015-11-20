@@ -131,6 +131,9 @@ namespace EJ08
         private void ConfigurarColumnasDataGrid()
         {
             dgrUsuarios.Columns[0].ReadOnly = true;
+            dgrUsuarios.Columns[0].HeaderText = "Código";
+            dgrUsuarios.Columns[1].HeaderText = "Nombre Completo";
+            dgrUsuarios.Columns[2].HeaderText = "Correo electrónico";
         }
 
         /// <summary>
