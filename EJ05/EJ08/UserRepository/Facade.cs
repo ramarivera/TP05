@@ -8,13 +8,21 @@ using System.Threading.Tasks;
 
 namespace EJ08.UserRepository
 {
+    /// <summary>
+    /// Clase Facade de la aplicación
+    /// </summary>
     public class Facade
     {
-
+        /// <summary>
+        /// Repositorio Usuarios de la clase y la aplicacion
+        /// </summary>
         private IRepositorioUsuarios iRepositorio;
 
         const string COMPARERS_NAMESPACE = "EJ08.UserRepository.Comparers";
 
+        /// <summary>
+        /// Constructor de la clase
+        /// </summary>
         public Facade ()
         {
             this.iRepositorio = new RepositorioUsuarios();
@@ -96,6 +104,10 @@ namespace EJ08.UserRepository
             return this.iRepositorio.BusquedaPorAproximacion(pBusqueda);
         }
 
+        /// <summary>
+        /// Obtiene los nombres de los comparadores disponibles
+        /// </summary>
+        /// <returns></returns>
         public IList<String> ObtenerNombresComparadores()
         {
             IList<String> lResultado = new List<String>();
