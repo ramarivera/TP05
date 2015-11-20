@@ -99,8 +99,6 @@ namespace EJ08
             dgrUsuarios.RowLeave -= dgrUsuarios_RowLeave;
             dgrUsuarios.RowsAdded -= dgrUsuarios_RowsAdded;
 
-            //iBinding = pListaUsuarios.ToBindingList();
-
             iBinding.Clear();
 
             foreach (Usuario user in pListaUsuarios)
@@ -111,8 +109,6 @@ namespace EJ08
             iListaActualizados = new List<Usuario>();
             iListaAgregados = new List<Usuario>();
             iListaEliminados = new List<String>();
-
-            //
 
             foreach (DataGridViewRow row in dgrUsuarios.Rows)
             {
