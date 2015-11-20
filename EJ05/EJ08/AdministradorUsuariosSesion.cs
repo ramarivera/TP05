@@ -90,7 +90,10 @@ namespace EJ08
 
         }
 
-     
+         /// <summary>
+         /// Recarga el <see cref="dgrUsuarios"/> con el contenido de la lista parámetro
+         /// </summary>
+         /// <param name="pListaUsuarios">Contiene la información que actualizará el <see cref="dgrUsuarios"/></param>
         private void Actualizar(IList<Usuario> pListaUsuarios)
         {
             dgrUsuarios.RowLeave -= dgrUsuarios_RowLeave;
@@ -122,11 +125,19 @@ namespace EJ08
             this.dgrUsuarios.Focus();
         }
 
+        /// <summary>
+        /// Cofigura las columnas de <see cref="dgrUsuarios"/>
+        /// </summary>
         private void ConfigurarColumnasDataGrid()
         {
             dgrUsuarios.Columns[0].ReadOnly = true;
         }
 
+        /// <summary>
+        /// Representa lo que ocurre al mostrar un nuevo <see cref="AdministradorUsuariosSesion"/>
+        /// </summary>
+        /// <param name="sender">La fuente del evento.</param>
+        /// <param name="e">La instancia de  <see cref="EventArgs"/> que contiene informacion del evento.</param>
         private void AdministradorUsuariosSesion_Shown(object sender, EventArgs e)
         {
             lbxComparers.DataSource = this.Fachada.ObtenerNombresComparadores().ToBindingList();
@@ -134,8 +145,6 @@ namespace EJ08
             this.lbxComparers.Enter += lbxComparers_Enter;
             this.lbxComparers.SelectedValueChanged += lbxComparers_SelectedValueChanged;
         }
-
-        
 
         private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
